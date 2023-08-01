@@ -6,7 +6,8 @@
             <p>Please check the URL or go back to the login page.</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary" routerLink="/login">Back to Login</button>
+            <!-- <button mat-raised-button color="primary" routerLink="/login">Back to Login</button> -->
+            <button mat-raised-button color="primary" (click)="backToLogin()">Back to Login</button>
         </mat-card-actions>
     </mat-card>
 </div>
