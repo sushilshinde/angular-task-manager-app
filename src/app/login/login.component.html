@@ -1,7 +1,7 @@
 <div class="container">
     <div class="box">
         <form class="form">
-            <h1 class="form-heading">Sign Up</h1>
+            <h1 class="form-heading">Login</h1>
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
                 <input matInput type="email" placeholder="Enter your email">
@@ -11,14 +11,10 @@
                 <mat-label>Password</mat-label>
                 <input matInput type="password" placeholder="Enter your password">
             </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput type="cnf-password" placeholder="Enter your confirm password">
-            </mat-form-field>
 
-            <button mat-raised-button color="primary">Sign Up</button>
+            <button mat-raised-button color="primary">Login</button>
         </form>
-
-        <p class="login-link">Already got an account? <a routerLink="/login">Login</a> now.</p>
+        <p class="signup-link">Don't have account ? <a routerLink="/signup">Create</a> now.</p>
+        <p class="reset-link">Forgot password ? <a routerLink="/forgot-password">Reset</a> now.</p>
     </div>
 </div>

@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterrialDesignModule } from './materrial-design/materrial-design.module';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -13,6 +16,9 @@ import { SignupComponent } from './signup/signup.component';
   declarations: [
     AppComponent,
     SignupComponent,
+    LoginComponent,
+    ForgotPasswordComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

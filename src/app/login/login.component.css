@@ -31,8 +31,13 @@
     margin-bottom: 10px;
 }
 
-.login-link {
-    margin-top: 25px;
-    text-align: center;
+.signup-link {
+    margin-top: 70px;
     font-size: 12px;
+    margin-left: 50px;
+}
+
+.reset-link {
+    font-size: 12px;
+    margin-left: 50px;
 }
