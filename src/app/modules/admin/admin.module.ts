@@ -17,7 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ]
 })
 export class AdminModule { }
