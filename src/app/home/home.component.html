@@ -1,27 +1,28 @@
-<!-- home page by murty -->
-<div class="home-page-container">
-  <div class="todo-lists-container">
-    <div class="row">
-      <div class="col-4 list-container">
-        <h3>Lists</h3>
-        <div class="seperator">
-        <div class="task-info" *ngFor="let task of allTasks">
-          <h5 class="task-heading" (click)="showTask(task)">{{ task.title }}</h5>
-        </div>
-        <button class="btn btn-success">+ New List</button>
-      </div>
-      </div>
-      <div class="col-8 tasks-container">
-        <h3>Tasks</h3>
-        <div class="task-container" *ngIf="displayTask">
-        <p class="task-description">{{displayTask}}</p>
-        <div class="task-buttons-container">
-          <button class="btn btn-primary task-button">Update</button>
-          <button class="btn btn-danger task-button">Delete</button>
-          <button class="btn btn-success task-button">Done</button>
-        </div>
-      </div>
-      </div>
-  </div>
+<div class="home-container">
+  <div class="header-container">
+    <h1>Studio Board</h1>
+  
+  <span class="plus-icon-container">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="currentColor"
+      class="bi bi-plus-circle"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+      />
+      <path
+        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+      />
+    </svg>
+  </span>
 </div>
+  <div class="row">
+    <div class="col-lg-3 col-sm-12">
+      <app-backlog></app-backlog>
+    </div>
+  </div>
 </div>
