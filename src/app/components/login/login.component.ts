@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,28 @@ export class LoginComponent {
     password: new FormControl(''),
   })
 
+  constructor(private auth:AuthService, private router:Router){}
+
+  ngOnInit():void{
+    // if user is already loged in then we dont need to login again..
+    // so we are redirecting to home page..
+    if(this.auth.isLoggedIn()){
+      this.router.navigate(['admin']);
+    }
+
+  }
+
   onSubmit(){
-    console.log(this.loginForm.value)
+    //console.log(this.loginForm.value)
+    if (this.loginForm.valid){
+      this.auth.login(this.loginForm.value).subscribe(
+        (result) => {
+          this.router.navigate(['admin'])
+        },
+        (err: Error) => {
+          alert(err.message);
+        }
+      )
+    }
   }
 }
