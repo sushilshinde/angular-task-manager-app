@@ -14,7 +14,7 @@
 .box {
     background-color: #03d2f748;
     border-radius: 8px;
-    padding: 20px;
+    padding: 45px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,13 +26,21 @@
     margin-bottom: 20px;
 }
 
-.mat-form-field {
+mat-form-field {
     width: 100%;
     margin-bottom: 10px;
+
+
 }
 
 .login-link {
     margin-top: 25px;
     text-align: center;
     font-size: 12px;
+}
+
+mat-hint {
+    color: red;
+    font-size: 12px;
+
 }
