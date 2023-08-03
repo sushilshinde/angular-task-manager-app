@@ -29,13 +29,19 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
+  // testing for login with signup data
   login({ email, password }: any): Observable<any> {
-    if (email === 'admin@gmail.com' && password === 'admin') {
-      this.setToken('1%ab#3tev67#g*6%');
-      return of({ name:'username', email});
+    const userDataJSON = localStorage.getItem('user');
+    if (userDataJSON) {
+      const userData = JSON.parse(userDataJSON);
+      if (userData.email === email && userData.password === password) {
+        this.setToken('1%ab#3tev67#g*6%');
+        return of({ name: 'username', email });
+      }
     }
-    return throwError(new Error('Email or Password is in correct.'));
+    return throwError(new Error('Email or Password is incorrect.'));
   }
+  
 
 }
 

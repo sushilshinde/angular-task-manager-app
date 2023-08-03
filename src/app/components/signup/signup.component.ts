@@ -22,9 +22,14 @@ export class SignupComponent {
     cnf_password: new FormControl('',Validators.required),
   })
 
-  onSubmit(){
-    console.log(this.signupForm.value)
 
+  // testing for login with signup data
+  onSubmit() {
+    if (this.signupForm.valid) {
+      localStorage.setItem('user', JSON.stringify(this.signupForm.value));
+      console.log('User registered:', this.signupForm.value);
+    }
   }
+  
 
 }

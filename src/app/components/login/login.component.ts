@@ -32,17 +32,35 @@ export class LoginComponent {
 
   }
 
-  onSubmit(){
-    //console.log(this.loginForm.value)
-    if (this.loginForm.valid){
-      this.auth.login(this.loginForm.value).subscribe(
-        (result) => {
-          this.router.navigate(['admin'])
-        },
-        (err: Error) => {
-          alert(err.message);
+
+  // testing for login with signup data
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const enteredEmail = this.loginForm.value.email;
+      const enteredPassword = this.loginForm.value.password;
+  
+      const userDataJSON = localStorage.getItem('user');
+      if (userDataJSON) {
+        const userData = JSON.parse(userDataJSON);
+        if (userData.email === enteredEmail && userData.password === enteredPassword) {
+          this.auth.login(this.loginForm.value).subscribe(
+            (result) => {
+              this.router.navigate(['admin']);
+            },
+            (err: Error) => {
+              alert(err.message);
+            }
+          );
+        } else {
+          alert('Invalid credentials');
         }
-      )
+      } else {
+        alert('No registered user found');
+      }
     }
   }
+  
+
+
+
 }
