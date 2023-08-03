@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  background-color: aquamarine;
+}
+html,
+body {
+  height: 100%;
+}
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.modal-box {
+  min-height: 170px;
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+.title {
+  font-family: "Lato";
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.list-form {
+  width: 75%;
+}
+.create-button {
+  margin-left: 10px;
+}
