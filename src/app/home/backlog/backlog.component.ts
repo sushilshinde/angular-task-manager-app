@@ -174,6 +174,7 @@ export class BacklogComponent {
         event.currentIndex,
       );
     }
+    console.log("dragged")
   }
 
 }

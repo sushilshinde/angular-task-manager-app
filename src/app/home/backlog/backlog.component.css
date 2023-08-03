@@ -1,3 +1,6 @@
+.example-container{
+    margin-top: 10px;
+}
 .backlog-cards-container{
     background-color: #eceef3;
     border: none;
@@ -59,6 +62,9 @@
 .backlog-card-footer-container p{
     padding-top: 12px;
     
+}
+.example-container{
+    /* margin-top: 20px; */
 }
 .example-list {
     overflow: hidden;
