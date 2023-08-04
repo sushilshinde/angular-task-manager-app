@@ -10,57 +10,37 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl('',[
+    email: new FormControl('', [
       Validators.required,
       Validators.email
     ]),
-    password: new FormControl('',[
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(12),
     ]),
   })
 
-  constructor(private auth:AuthService, private router:Router){}
+  constructor(private auth: AuthService, private router: Router) { }
 
-  ngOnInit():void{
-    // if user is already loged in then we dont need to login again..
-    // so we are redirecting to home page..
-    if(this.auth.isLoggedIn()){
+  ngOnInit(): void {
+    if (this.auth.isLoggedIn()) {
       this.router.navigate(['admin']);
     }
-
   }
 
-
-  // testing for login with signup data
   onSubmit() {
     if (this.loginForm.valid) {
-      const enteredEmail = this.loginForm.value.email;
-      const enteredPassword = this.loginForm.value.password;
-  
-      const userDataJSON = localStorage.getItem('user');
-      if (userDataJSON) {
-        const userData = JSON.parse(userDataJSON);
-        if (userData.email === enteredEmail && userData.password === enteredPassword) {
-          this.auth.login(this.loginForm.value).subscribe(
-            (result) => {
-              this.router.navigate(['admin']);
-            },
-            (err: Error) => {
-              alert(err.message);
-            }
-          );
-        } else {
-          alert('Invalid credentials');
+      const { email, password } = this.loginForm.value;
+
+      this.auth.login({ email, password }).subscribe(
+        (result) => {
+          this.router.navigate(['admin']);
+        },
+        (err: Error) => {
+          alert(err.message);
         }
-      } else {
-        alert('No registered user found');
-      }
+      );
     }
   }
-  
-
-
-
 }

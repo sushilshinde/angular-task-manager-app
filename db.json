@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "cnf_password": "admin",
+      "id": 1
+    }
+  ],
+  "auth": []
+}

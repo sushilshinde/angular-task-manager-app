@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,27 +11,34 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent {
 
   signupForm = new FormGroup({
-    name: new FormControl('',Validators.required),
-    email: new FormControl('',[
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [
       Validators.required,
       Validators.email
     ]),
-    password: new FormControl('',[
+    password: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(12)
     ]),
-    cnf_password: new FormControl('',Validators.required),
+    cnf_password: new FormControl('', Validators.required),
   })
 
+  constructor(private auth: AuthService, private router:Router) { }
 
-  // testing for login with signup data
   onSubmit() {
     if (this.signupForm.valid) {
-      localStorage.setItem('user', JSON.stringify(this.signupForm.value));
-      console.log('User registered:', this.signupForm.value);
+      const user = this.signupForm.value;
+      this.auth.register(user).subscribe(
+        (result) => {
+          console.log('User registered:', result);
+          this.signupForm.reset();
+          this.router.navigate(['login']);
+        },
+        (err: any) => {
+          console.error('Registration failed:', err);
+        }
+      );
     }
   }
-  
-
 }
