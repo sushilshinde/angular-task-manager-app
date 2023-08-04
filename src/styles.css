@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-html {
-  background-color: aquamarine;
-}
+
 html,
 body {
   height: 100%;
@@ -10,8 +8,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 .modal-box {
   min-height: 170px;
@@ -32,4 +30,13 @@ body {
 }
 .create-button {
   margin-left: 10px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
