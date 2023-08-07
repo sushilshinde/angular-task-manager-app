@@ -6,6 +6,13 @@
       "password": "admin",
       "cnf_password": "admin",
       "id": 1
+    },
+    {
+      "name": "saikat",
+      "email": "saikat@gmail.com",
+      "password": "saikat",
+      "cnf_password": "saikat",
+      "id": 2
     }
   ],
   "auth": []
