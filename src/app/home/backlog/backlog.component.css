@@ -66,6 +66,7 @@
 
 .example-list {
     overflow: hidden;
+    min-height: 20px;
   }
   
   .example-box {
