@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+  <button mat-button>
+    <span class="hussle">hussle</span>
+  </button>
+
+  <input class="search-bar" type="text" placeholder="Search" />
+  <span class="example-spacer"></span>
+  <button mat-button>
+    <mat-icon>mail_outline</mat-icon>
+  </button>
+
+  <button (click)="badgevisibility()" mat-button>
+    <mat-icon [matBadgeHidden]="badgevisible" matBadgeSize="small" matBadge="."
+      >notifications_none</mat-icon
+    >
+  </button>
+  <button mat-button>Profile</button>
+</mat-toolbar>
+
+<!-- SideNave Start -->
+<mat-drawer-container autosize>
+  <mat-drawer
+    #drawer
+    opened="true"
+    mode="side"
+    position="start"
+    style="width: 9%"
+  >
+    <div style="display: flex; flex-direction: column; height: 100%">
+      <mat-nav-list
+        style="flex-grow: 1; padding-top: 10px; padding-bottom: 10px"
+      >
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">group</mat-icon>
+            <button routerLink="" mat-button>Manage</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">dns</mat-icon>
+            <button routerLink="" mat-button>Boards</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">event_note</mat-icon>
+            <button routerLink="" mat-button>Schedule</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">assessment</mat-icon>
+            <button routerLink="" mat-button>Reports</button>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+      <div style="margin-top: auto">
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">settings</mat-icon>
+            <button mat-button>Settings</button>
+          </div>
+        </mat-list-item>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="text-align: center; min-height: 535px">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -14,12 +14,22 @@ import {
   CdkDropListGroup,
   transferArrayItem
 } from '@angular/cdk/drag-drop';
+import { NewListComponent } from './new-list/new-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewTaskComponent } from './new-task/new-task.component';
+import { MenubarComponent } from './menubar/menubar.component';
+import { MaterialModule } from './material-module';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BacklogComponent
+    BacklogComponent,
+    NewListComponent,
+    NewTaskComponent,
+    MenubarComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +39,10 @@ import {
     CdkDropList,
     CdkDropListGroup,
     
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
