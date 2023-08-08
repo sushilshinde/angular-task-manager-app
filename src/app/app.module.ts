@@ -12,12 +12,12 @@ import {
   CdkDragDrop,
   moveItemInArray,
   CdkDropListGroup,
-  transferArrayItem
+  transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { NewListComponent } from './new-list/new-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewTaskComponent } from './new-task/new-task.component';
-import { MenubarComponent } from './menubar/menubar.component';
+import { MenubarComponent } from './home/menubar/menubar.component';
 import { MaterialModule } from './material-module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
@@ -38,7 +38,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     CdkDrag,
     CdkDropList,
     CdkDropListGroup,
-    
     BrowserAnimationsModule,
     MaterialModule,
   ],
