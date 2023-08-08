@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-menubar',
@@ -16,5 +17,11 @@ export class MenubarComponent {
   badgevisible = false;
   badgevisibility() {
     this.badgevisible = true;
+  }
+
+  constructor(private auth: AuthService) {}
+
+  logout(): void {
+    this.auth.logout();
   }
 }

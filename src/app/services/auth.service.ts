@@ -43,6 +43,7 @@ export class AuthService {
             this.setToken('1%ab#3tev67#g*6%');
             return { name: '', email };
           } else {
+            // throw new Error('Email or Password is incorrect.');
             throw new Error('Email or Password is incorrect.');
           }
         }),
