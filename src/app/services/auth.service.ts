@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000'; // Change this to your server URL
+  private baseUrl = 'http://localhost:4200'; // Change this to your server URL
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -41,7 +41,7 @@ export class AuthService {
         map((result: any) => {
           if (result.length > 0) {
             this.setToken('1%ab#3tev67#g*6%');
-            return { name: 'username', email };
+            return { name: '', email };
           } else {
             throw new Error('Email or Password is incorrect.');
           }
@@ -52,3 +52,5 @@ export class AuthService {
       );
   }
 }
+
+

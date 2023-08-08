@@ -26,39 +26,21 @@
     position="start"
     style="width: 9%"
   >
-    <div style="display: flex; flex-direction: column; height: 100%">
-      <mat-nav-list
-        style="flex-grow: 1; padding-top: 10px; padding-bottom: 10px"
-      >
-        <mat-list-item>
-          <div style="display: flex; flex-direction: column">
-            <mat-icon style="margin: auto">group</mat-icon>
-            <button routerLink="" mat-button>Manage</button>
-          </div>
-        </mat-list-item>
-        <mat-list-item>
-          <div style="display: flex; flex-direction: column">
-            <mat-icon style="margin: auto">dns</mat-icon>
-            <button routerLink="" mat-button>Boards</button>
-          </div>
-        </mat-list-item>
-        <mat-list-item>
-          <div style="display: flex; flex-direction: column">
-            <mat-icon style="margin: auto">event_note</mat-icon>
-            <button routerLink="" mat-button>Schedule</button>
-          </div>
-        </mat-list-item>
-        <mat-list-item>
-          <div style="display: flex; flex-direction: column">
-            <mat-icon style="margin: auto">assessment</mat-icon>
-            <button routerLink="" mat-button>Reports</button>
+    <div class="div-container">
+      <mat-nav-list class="nav-list-container">
+        <mat-list-item *ngFor="let menuItem of menuItems">
+          <div class="list-item-div">
+            <mat-icon class="menu-item-icon">{{ menuItem.icon }}</mat-icon>
+            <button routerLink="{{ menuItem.route }}" mat-button>
+              {{ menuItem.label }}
+            </button>
           </div>
         </mat-list-item>
       </mat-nav-list>
-      <div style="margin-top: auto">
+      <div class="setting-div">
         <mat-list-item>
-          <div style="display: flex; flex-direction: column">
-            <mat-icon style="margin: auto">settings</mat-icon>
+          <div class="list-item-div">
+            <mat-icon class="menu-item-icon">settings</mat-icon>
             <button mat-button>Settings</button>
           </div>
         </mat-list-item>
@@ -66,12 +48,12 @@
     </div>
   </mat-drawer>
   <mat-drawer-content>
-    <div style="text-align: center; min-height: 535px">
+    <div class="mat-drawer-div">
       <!-- <router-outlet></router-outlet> -->
       <div class="home-container">
         <div class="header-container">
           <h1>Studio Board</h1>
-      
+
           <span class="plus-icon-container">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +72,7 @@
             </svg>
           </span>
         </div>
-      
+
         <app-backlog></app-backlog>
       </div>
     </div>
