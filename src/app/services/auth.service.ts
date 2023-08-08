@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:4200'; // Change this to your server URL
+  private baseUrl = 'http://localhost:3000'; // Change this to your server URL
 
   constructor(private router: Router, private http: HttpClient) { }
 
