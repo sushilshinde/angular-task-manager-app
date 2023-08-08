@@ -8,8 +8,8 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { AdminModule } from './modules/admin/admin.module';
 
-import { NewListComponent } from './new-list/new-list.component';
-import { NewTaskComponent } from './new-task/new-task.component';
+// import { NewListComponent } from './new-list/new-list.component';
+// import { NewTaskComponent } from './new-task/new-task.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'login', pathMatch:'full'},
@@ -20,8 +20,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
    loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule)},
   { path:'**', component:NotFoundComponent},
-  { path: 'new-list', component: NewListComponent },
-  { path: 'new-task', component: NewTaskComponent },
+  // { path: 'new-list', component: NewListComponent },
+  // { path: 'new-task', component: NewTaskComponent },
   
 // import { NewListComponent } from './new-list/new-list.component';
 // import { NewTaskComponent } from './new-task/new-task.component';
