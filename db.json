@@ -13,6 +13,20 @@
       "password": "saikat",
       "cnf_password": "saikat",
       "id": 2
+    },
+    {
+      "name": "Balaji",
+      "email": "balaji@gmail.com",
+      "password": "1234567",
+      "cnf_password": "1234567",
+      "id": 3
+    },
+    {
+      "name": "Saikat Acharjya",
+      "email": "sacharjya@gmail.com",
+      "password": "123456",
+      "cnf_password": "123456",
+      "id": 4
     }
   ],
   "auth": []
