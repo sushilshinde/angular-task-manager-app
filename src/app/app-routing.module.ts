@@ -8,6 +8,9 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { AdminModule } from './modules/admin/admin.module';
 
+import { NewListComponent } from './new-list/new-list.component';
+import { NewTaskComponent } from './new-task/new-task.component';
+
 const routes: Routes = [
   { path:'', redirectTo:'login', pathMatch:'full'},
   { path:'login', component:LoginComponent},
@@ -17,11 +20,19 @@ const routes: Routes = [
     canActivate: [AuthGuard],
    loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule)},
   { path:'**', component:NotFoundComponent},
+  { path: 'new-list', component: NewListComponent },
+  { path: 'new-task', component: NewTaskComponent },
   
-];
+// import { NewListComponent } from './new-list/new-list.component';
+// import { NewTaskComponent } from './new-task/new-task.component';
+
+// const routes: Routes = [
+//   { path: 'new-list', component: NewListComponent },
+//   { path: 'new-task', component: NewTaskComponent },
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

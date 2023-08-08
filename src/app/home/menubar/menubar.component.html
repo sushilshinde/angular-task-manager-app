@@ -1,0 +1,98 @@
+<mat-toolbar color="primary">
+  <button mat-button>
+    <span class="hussle">hussle</span>
+  </button>
+
+  <input class="search-bar" type="text" placeholder="Search" />
+  <span class="example-spacer"></span>
+  <button mat-button>
+    <mat-icon>mail_outline</mat-icon>
+  </button>
+
+  <button (click)="badgevisibility()" mat-button>
+    <mat-icon [matBadgeHidden]="badgevisible" matBadgeSize="small" matBadge="."
+      >notifications_none</mat-icon
+    >
+  </button>
+  <button mat-button>Profile</button>
+</mat-toolbar>
+
+<!-- SideNave Start -->
+<mat-drawer-container autosize>
+  <mat-drawer
+    #drawer
+    opened="true"
+    mode="side"
+    position="start"
+    style="width: 9%"
+  >
+    <div style="display: flex; flex-direction: column; height: 100%">
+      <mat-nav-list
+        style="flex-grow: 1; padding-top: 10px; padding-bottom: 10px"
+      >
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">group</mat-icon>
+            <button routerLink="" mat-button>Manage</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">dns</mat-icon>
+            <button routerLink="" mat-button>Boards</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">event_note</mat-icon>
+            <button routerLink="" mat-button>Schedule</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">assessment</mat-icon>
+            <button routerLink="" mat-button>Reports</button>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+      <div style="margin-top: auto">
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">settings</mat-icon>
+            <button mat-button>Settings</button>
+          </div>
+        </mat-list-item>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="text-align: center; min-height: 535px">
+      <!-- <router-outlet></router-outlet> -->
+      <div class="home-container">
+        <div class="header-container">
+          <h1>Studio Board</h1>
+      
+          <span class="plus-icon-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-plus-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
+          </span>
+        </div>
+      
+        <app-backlog></app-backlog>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
