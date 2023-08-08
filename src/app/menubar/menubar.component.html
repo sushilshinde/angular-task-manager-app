@@ -19,35 +19,48 @@
 
 <!-- SideNave Start -->
 <mat-drawer-container autosize>
-  <mat-drawer #drawer opened="true" mode="side" position="start">
+  <mat-drawer
+    #drawer
+    opened="true"
+    mode="side"
+    position="start"
+    style="width: 9%"
+  >
     <div style="display: flex; flex-direction: column; height: 100%">
-      <mat-nav-list style="flex-grow: 1">
+      <mat-nav-list
+        style="flex-grow: 1; padding-top: 10px; padding-bottom: 10px"
+      >
         <mat-list-item>
-          <button routerLink="" mat-button>
-            <mat-icon>group</mat-icon> Manage
-          </button>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">group</mat-icon>
+            <button routerLink="" mat-button>Manage</button>
+          </div>
         </mat-list-item>
         <mat-list-item>
-          <button routerLink="" mat-button>
-            <mat-icon>dns</mat-icon>
-            Boards
-          </button>
-        </mat-list-item>
-
-        <mat-list-item>
-          <button routerLink="" mat-button>
-            <mat-icon>event_note</mat-icon> Schedule
-          </button>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">dns</mat-icon>
+            <button routerLink="" mat-button>Boards</button>
+          </div>
         </mat-list-item>
         <mat-list-item>
-          <button routerLink="" mat-button>
-            <mat-icon> assessment</mat-icon> Reports
-          </button>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">event_note</mat-icon>
+            <button routerLink="" mat-button>Schedule</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">assessment</mat-icon>
+            <button routerLink="" mat-button>Reports</button>
+          </div>
         </mat-list-item>
       </mat-nav-list>
       <div style="margin-top: auto">
         <mat-list-item>
-          <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+          <div style="display: flex; flex-direction: column">
+            <mat-icon style="margin: auto">settings</mat-icon>
+            <button mat-button>Settings</button>
+          </div>
         </mat-list-item>
       </div>
     </div>
