@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { BacklogComponent } from './home/backlog/backlog.component';
+import { HomeComponent } from './modules/admin/components/home/home.component';
+import { BacklogComponent } from './modules/admin/components/home/backlog/backlog.component';
 
 import {
   CdkDrag,
@@ -19,7 +19,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { NewListComponent } from './new-list/new-list.component';
 import { NewTaskComponent } from './new-task/new-task.component';
-import { MenubarComponent } from './home/menubar/menubar.component';
+import { MenubarComponent } from './modules/admin/components/home/menubar/menubar.component';
 import { MaterialModule } from './material-module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
