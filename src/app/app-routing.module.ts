@@ -10,7 +10,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 
-import { AdminModule } from './modules/admin/admin.module';
+//import { AdminModule } from './modules/admin/admin.module';
 
 const routes: Routes = [
   { path:'', redirectTo:'login', pathMatch:'full'},
