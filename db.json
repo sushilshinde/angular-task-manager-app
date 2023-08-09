@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Admin",
+      "name": "admin",
       "email": "admin@gmail.com",
       "password": "admin",
       "cnf_password": "admin",
