@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MaterrialDesignModule } from './materrial-design/materrial-design.module';
+import { HighlightDirective } from './highlight.directive';
 // import { HomeComponent } from './modules/admin/components/home/home.component';
 
 
@@ -46,6 +47,7 @@ import { MaterrialDesignModule } from './materrial-design/materrial-design.modul
     ForgotPasswordComponent,
     NotFoundComponent,
     HomeComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ import { MaterrialDesignModule } from './materrial-design/materrial-design.modul
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
