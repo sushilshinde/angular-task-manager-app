@@ -41,6 +41,9 @@
     color: #352162;
     font-weight: bold;
 }
+.pointer{
+    cursor: pointer;
+}
 
 .transparent-plus-icon{
     opacity: 0.5;
