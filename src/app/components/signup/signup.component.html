@@ -28,7 +28,8 @@
                 <mat-label>Confirm Password</mat-label>
                 <input matInput type="password" placeholder="Enter your confirm password"
                     formControlName="cnf_password">
-                <mat-hint *ngIf="signupForm.get('cnf_password')?.dirty && signupForm.get('password')?.dirty && signupForm.get('password')?.value !== signupForm.get('cnf_password')?.value">
+                <mat-hint
+                    *ngIf="signupForm.get('cnf_password')?.dirty && signupForm.get('password')?.dirty && signupForm.get('password')?.value !== signupForm.get('cnf_password')?.value">
                     *Password and Confirm Password must be match.
                 </mat-hint>
             </mat-form-field>
