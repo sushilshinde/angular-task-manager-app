@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { BacklogTask, CompletedTask, InprogressTask, ReviewTask } from 'src/app/models/tasks.model';
+import { TasksDb } from 'src/app/models/tasks.model';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -9,21 +9,14 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./backlog.component.css']
 })
 export class BacklogComponent implements OnInit{
-
-  backlog_tasks?: BacklogTask[];
-  inprogress_tasks?: InprogressTask[];
-  review_tasks?: ReviewTask[];
-  completed_tasks?: CompletedTask[];
+  all_tasks?: TasksDb[];
 
   constructor(private allList: TaskService){}
 
   ngOnInit(): void {
     this.allList.get_all_tasks().subscribe((res:any) => {
-      this.backlog_tasks = res.backlog_tasks;
-      this.inprogress_tasks = res.inprogress_tasks;
-      this.review_tasks = res.review_tasks;
-      this.completed_tasks = res.completed_tasks;
-      console.log(res)
+      this.all_tasks = res.all_tasks;
+      console.log(this.all_tasks);
     })
   }
 
@@ -38,7 +31,9 @@ export class BacklogComponent implements OnInit{
         event.currentIndex,
       );
     }
-    console.log("dragged")
+    console.log('drag and drop event occurs');
+    console.log(this.all_tasks);
+
   }
 
 }

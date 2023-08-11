@@ -1,226 +1,74 @@
 <div class="row" cdkDropListGroup>
-  <div class="col-lg-3 example-container">
+  <div class="col-lg-3 example-container" *ngFor="let task_category of all_tasks">
     <div class="backlog-container">
       <div class="card backlog-cards-container">
         <div class="card-body">
           <div class="title-container">
-            <h2 class="card-title">Backlog</h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+            <h2 class="card-title">{{task_category.category}}</h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-three-dots-vertical pointer"
+              viewBox="0 0 16 16"
+            >
               <path
                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
             </svg>
           </div>
-          <div cdkDropList [cdkDropListData]="backlog_tasks" class="cards-container example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="card example-box backlog_user_single_card mt-2" *ngFor="let backlog_task of backlog_tasks"
-              cdkDrag>
+          <div
+            cdkDropList
+            [cdkDropListData]="task_category.tasks"
+            class="cards-container example-list"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              class="card example-box backlog_user_single_card mt-2"
+              *ngFor="let task of task_category.tasks"
+              cdkDrag
+            >
               <div class="card-body">
-                <p class="card-title priority {{ backlog_task.class }}">
-                  {{ backlog_task.priority }}
+                <p class="card-title priority {{ task.class }}">
+                  {{ task.priority }}
                 </p>
                 <p class="card-text backlog-cards-title">
-                  {{ backlog_task.title }}
+                  {{ task.title }}
                 </p>
                 <div class="card-footer-container">
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-chat-right mx-2" viewBox="0 0 16 16">
+                  <div class="pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-chat-right mx-2"
+                      viewBox="0 0 16 16"
+                    >
                       <path
                         d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
                     </svg>
                     <span class="comment">{{
-                      backlog_task.comments.length
-                      }}</span>
+                      task.comments.length
+                    }}</span>
                   </div>
                   <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                      class="bi bi-plus-circle transparent-plus-icon" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      fill="currentColor"
+                      class="bi bi-plus-circle transparent-plus-icon pointer"
+                      viewBox="0 0 16 16"
+                    >
                       <path
                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                     </svg>
-                    <img class="avatar-small" [src]="backlog_task.avatar" alt="avatar" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="backlog-card-footer-container">
-            <p class="mx-2">Add Task</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
-              viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 example-container">
-    <div class="backlog-container">
-      <div class="card backlog-cards-container">
-        <div class="card-body">
-          <div class="title-container">
-            <h2 class="card-title">Inprogress</h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            </svg>
-          </div>
-          <div cdkDropList [cdkDropListData]="inprogress_tasks" class="cards-container example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="card example-box backlog_user_single_card mt-2" *ngFor="let inprogress_task of inprogress_tasks"
-              cdkDrag>
-              <div class="card-body">
-                <p class="card-title priority {{ inprogress_task.class }}">
-                  {{ inprogress_task.priority }}
-                </p>
-                <p class="card-text backlog-cards-title">
-                  {{ inprogress_task.title }}
-                </p>
-                <div class="card-footer-container">
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-chat-right mx-2" viewBox="0 0 16 16">
-                      <path
-                        d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
-                    </svg>
-                    <span class="comment">{{
-                      inprogress_task.comments.length
-                      }}</span>
-                  </div>
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                      class="bi bi-plus-circle transparent-plus-icon" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                      <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    <img class="avatar-small" [src]="inprogress_task.avatar" alt="avatar" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="backlog-card-footer-container">
-            <p class="mx-2">Add Task</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
-              viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 example-container">
-    <div class="backlog-container">
-      <div class="card backlog-cards-container">
-        <div class="card-body">
-          <div class="title-container">
-            <h2 class="card-title">Review</h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            </svg>
-          </div>
-          <div cdkDropList [cdkDropListData]="review_tasks" class="cards-container example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="card example-box backlog_user_single_card mt-2" *ngFor="let review_task of review_tasks"
-              cdkDrag>
-              <div class="card-body">
-                <p class="card-title priority {{ review_task.class }}">
-                  {{ review_task.priority }}
-                </p>
-                <p class="card-text backlog-cards-title">
-                  {{ review_task.title }}
-                </p>
-                <div class="card-footer-container">
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-chat-right mx-2" viewBox="0 0 16 16">
-                      <path
-                        d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
-                    </svg>
-                    <span class="comment">{{
-                      review_task.comments.length
-                      }}</span>
-                  </div>
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                      class="bi bi-plus-circle transparent-plus-icon" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                      <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    <img class="avatar-small" [src]="review_task.avatar" alt="avatar" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="backlog-card-footer-container">
-            <p class="mx-2">Add Task</p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
-              viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3 example-container">
-    <div class="backlog-container">
-      <div class="card backlog-cards-container">
-        <div class="card-body">
-          <div class="title-container">
-            <h2 class="card-title">Complete</h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-            </svg>
-          </div>
-          <div cdkDropList [cdkDropListData]="completed_tasks" class="cards-container example-list"
-            (cdkDropListDropped)="drop($event)">
-            <div class="card example-box backlog_user_single_card mt-2" *ngFor="let completed_task of completed_tasks"
-              cdkDrag>
-              <div class="card-body">
-                <p class="card-title priority {{ completed_task.class }}">
-                  {{ completed_task.priority }}
-                </p>
-                <p class="card-text backlog-cards-title">
-                  {{ completed_task.title }}
-                </p>
-                <div class="card-footer-container">
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-chat-right mx-2" viewBox="0 0 16 16">
-                      <path
-                        d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
-                    </svg>
-                    <span class="comment">{{
-                      completed_task.comments.length
-                      }}</span>
-                  </div>
-                  <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                      class="bi bi-plus-circle transparent-plus-icon" viewBox="0 0 16 16">
-                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                      <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                    </svg>
-                    <img class="avatar-small" [src]="completed_task.avatar" alt="avatar" />
+                    <img
+                      class="avatar-small pointer"
+                      [src]="task.avatar"
+                      alt="avatar"
+                    />
                   </div>
                 </div>
               </div>
