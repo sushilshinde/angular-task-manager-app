@@ -10,7 +10,7 @@
   </button>
 
   <button (click)="badgevisibility()" mat-button>
-    <mat-icon [matBadgeHidden]="badgevisible" matBadgeSize="small" matBadge="."
+    <mat-icon [hidden]="badgevisible" aria-hidden="false" matBadgeSize="small" matBadge="."
       >notifications_none</mat-icon
     >
   </button>
