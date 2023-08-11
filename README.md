@@ -9,9 +9,12 @@ Angular CLI
 JSON Server
 
 
-# You can install Angular CLI and JSON Server using the following commands:
+# You can install Angular CLI using the following command
 
 npm install -g @angular/cli
+
+# You can install JSON Server using the following commands:
+
 npm install -g json-server
 
 
