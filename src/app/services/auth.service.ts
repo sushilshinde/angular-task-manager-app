@@ -9,6 +9,8 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:3000'; // Change this to your server URL
+  private loginTimeKey = 'loginTime'; // Key for localStorage
+
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -29,6 +31,15 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
+  setLoginTime() {
+    localStorage.setItem(this.loginTimeKey, new Date().toISOString()); // Store login time
+  }
+
+  getLoginTime(): Date | null {
+    const loginTimeStr = localStorage.getItem(this.loginTimeKey);
+    return loginTimeStr ? new Date(loginTimeStr) : null;
+  }
+
   // Register a new user
   register(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/users`, user);
@@ -41,6 +52,7 @@ export class AuthService {
         map((result: any) => {
           if (result.length > 0) {
             this.setToken('1%ab#3tev67#g*6%');
+            this.setLoginTime(); // Store login time
             return { name: '', email };
           } else {
             // throw new Error('Email or Password is incorrect.');

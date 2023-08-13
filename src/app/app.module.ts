@@ -28,6 +28,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MaterrialDesignModule } from './materrial-design/materrial-design.module';
 import { HighlightDirective } from './custom-directive/highlight.directive';
+import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
 
 
 
@@ -48,6 +49,7 @@ import { HighlightDirective } from './custom-directive/highlight.directive';
         NotFoundComponent,
         HomeComponent,
         HighlightDirective,
+        LoginTimeFormatPipe,
     ],
     imports: [
         BrowserModule,

@@ -7,6 +7,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./menubar.component.css'],
 })
 export class MenubarComponent {
+
+  loginTime: Date | null; // Initialize as null
+
   menuItems = [
     { icon: 'group', label: 'Manage', route: '' },
     { icon: 'dns', label: 'Boards', route: '' },
@@ -19,7 +22,9 @@ export class MenubarComponent {
     this.badgevisible = true;
   }
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService) {
+    this.loginTime = auth.getLoginTime(); // Initialize loginTime
+  }
 
   logout(): void {
     this.auth.logout();
