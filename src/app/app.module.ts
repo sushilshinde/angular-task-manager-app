@@ -29,6 +29,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MaterrialDesignModule } from './materrial-design/materrial-design.module';
 import { HighlightDirective } from './custom-directive/highlight.directive';
 import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -65,6 +66,7 @@ import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
         HttpClientModule,
         BrowserAnimationsModule,
         MaterialModule,
+        StoreModule.forRoot({}, {}),
     ],
     providers: [],
     bootstrap: [AppComponent],
