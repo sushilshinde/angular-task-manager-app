@@ -9,10 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent {
 
-  constructor(private auth: AuthService){}
+  // constructor(private auth: AuthService){}
 
-  logout(): void{
-    this.auth.logout()
-  }
+  // logout(): void{
+  //   this.auth.logout()
+  // }
 
 }

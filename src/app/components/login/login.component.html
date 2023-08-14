@@ -2,9 +2,10 @@
     <div class="box">
         <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h1 class="form-heading">Login</h1>
-            <mat-form-field appearance="fill" class="form-group" >
+            <mat-form-field appearance="fill" class="form-group">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" id="email" name="email" placeholder="Enter your email" formControlName="email">
+                <input matInput type="email" id="email" name="email" placeholder="Enter your email"
+                    formControlName="email">
                 <mat-hint *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">
                     *Enter a valid email.
                 </mat-hint>
@@ -12,7 +13,8 @@
 
             <mat-form-field appearance="fill" class="form-group">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" id="password" name="password" placeholder="Enter your password" formControlName="password">
+                <input matInput type="password" id="password" name="password" placeholder="Enter your password"
+                    formControlName="password">
                 <mat-hint *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">
                     *Enter password (Min char 5 and Max char 12).
                 </mat-hint>
