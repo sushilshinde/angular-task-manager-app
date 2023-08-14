@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { NewListComponent } from 'src/app/new-list/new-list.component';
 
 @Component({
   selector: 'app-menubar',
@@ -20,20 +21,18 @@ export class MenubarComponent {
   badgevisibility() {
     this.badgevisible = true;
   }
-<<<<<<< HEAD
-  constructor(private auth: AuthService) {}
-=======
 
-  constructor(private auth: AuthService, private router: Router) {}
->>>>>>> murty
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private dialogRef: MatDialog
+  ) {}
 
   logout(): void {
     this.auth.logout();
   }
-<<<<<<< HEAD
-=======
 
-  addNewTask(){
+  addNewTask() {
+    this.dialogRef.open(NewListComponent);
   }
->>>>>>> murty
 }
