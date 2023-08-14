@@ -14,6 +14,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class BacklogComponent implements OnInit {
   all_tasks?: TasksDb[];
+  value?: string = 'Low'
 
   constructor(private allList: TaskService) {}
 
@@ -27,11 +28,29 @@ export class BacklogComponent implements OnInit {
     } else {
       this.allList.get_all_tasks().subscribe((res: any) => {
         this.all_tasks = res.all_tasks;
-        console.log(this.all_tasks); 
+        console.log(this.all_tasks);
       });
     }
   }
 
+  onSortToHigh(category:string) {
+    this.all_tasks?.forEach((data) => {
+      if(data.category === category){
+        data.tasks.sort((a, b) => a.priority.length - b.priority.length)
+        console.log(data.category)
+      }
+    });
+  }
+
+  onSortToLow(category:string) {
+    this.all_tasks?.forEach((data) => {
+      if(data.category === category){
+        data.tasks.sort((a, b) => b.priority.length - a.priority.length);
+      }
+    });
+  }
+
+  
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(

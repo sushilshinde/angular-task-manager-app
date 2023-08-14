@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-menubar',
@@ -19,9 +21,12 @@ export class MenubarComponent {
     this.badgevisible = true;
   }
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   logout(): void {
     this.auth.logout();
+  }
+
+  addNewTask(){
   }
 }

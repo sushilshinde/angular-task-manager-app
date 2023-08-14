@@ -13,6 +13,9 @@
   background-color: blueviolet;
   font-size: medium;
 }
+.pointer{
+  cursor: pointer;
+}
 
 .button-icon {
   border-left: 11px;

@@ -24,6 +24,7 @@
         "tasks": [
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Company website redesign",
             "class": "low-priority",
             "comments": ["good work"],
@@ -31,6 +32,7 @@
           },
           {
             "priority": "Medium Priority",
+            "rating": 2,
             "title": "Mobile app login process prototype",
             "class": "medium-priority",
             "comments": ["nice", "good work"],
@@ -38,6 +40,7 @@
           },
           {
             "priority": "High Priority",
+            "rating": 3,
             "title": "Onboarding designs",
             "class": "high-priority",
             "comments": ["nice"],
@@ -50,6 +53,7 @@
         "tasks": [
           {
             "priority": "High Priority",
+            "rating": 3,
             "title": "Research and strategy for upcoming projects",
             "class": "high-priority",
             "comments": ["good work"],
@@ -57,6 +61,7 @@
           },
           {
             "priority": "Medium Priority",
+            "rating": 2,
             "title": "Account profile flow diagrams",
             "class": "medium-priority",
             "comments": ["nice", "good work"],
@@ -64,6 +69,7 @@
           },
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Slide templates for client pitch project",
             "class": "low-priority",
             "comments": ["nice"],
@@ -71,6 +77,7 @@
           },
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Review administrator console designs",
             "class": "low-priority",
             "comments": ["nice"],
@@ -83,6 +90,7 @@
         "tasks": [
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Dashboard layout design",
             "class": "low-priority",
             "comments": ["good work"],
@@ -90,6 +98,7 @@
           },
           {
             "priority": "High Priority",
+            "rating": 3,
             "title": "Social media posts",
             "class": "high-priority",
             "comments": ["nice", "good work"],
@@ -97,6 +106,7 @@
           },
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Shopping cart and catalog wireframes",
             "class": "low-priority",
             "comments": ["nice"],
@@ -104,6 +114,7 @@
           },
           {
             "priority": "Medium Priority",
+            "rating": 2,
             "title": "End user flow charts",
             "class": "medium-priority",
             "comments": ["nice"],
@@ -116,6 +127,7 @@
         "tasks": [
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "Review client spec document and give feedback",
             "class": "low-priority",
             "comments": ["good work"],
@@ -123,6 +135,7 @@
           },
           {
             "priority": "Medium Priority",
+            "rating": 2,
             "title": "Navigation designs",
             "class": "medium-priority",
             "comments": ["nice", "good work"],
@@ -130,6 +143,7 @@
           },
           {
             "priority": "Low Priority",
+            "rating": 1,
             "title": "User profile prototypes",
             "class": "low-priority",
             "comments": ["nice"],
@@ -137,6 +151,7 @@
           },
           {
             "priority": "High Priority",
+            "rating": 3,
             "title": "Create style guide based on previous feedback",
             "class": "high-priority",
             "comments": ["nice"],

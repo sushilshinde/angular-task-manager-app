@@ -8,18 +8,22 @@
         <div class="card-body">
           <div class="title-container">
             <h2 class="card-title">{{ task_category.category }}</h2>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-three-dots-vertical pointer"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-              />
-            </svg>
+            <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <div mat-menu-item disabled="">Sort By Title</div>
+              <button mat-menu-item (click)="onSortToHigh(task_category.category)">
+                <mat-icon>arrow_forward</mat-icon>
+                <span>A to Z</span>
+              </button>
+              <button mat-menu-item (click)="onSortToLow(task_category.category)">
+                <mat-icon>arrow_back</mat-icon>
+                <span>Z to A</span>
+              </button>
+            </mat-menu>
+          </div>
           </div>
           <div
             cdkDropList
@@ -61,7 +65,7 @@
                       width="28"
                       height="28"
                       fill="currentColor"
-                      class="bi bi-plus-circle  transparent-plus-icon pointer"
+                      class="bi bi-plus-circle d-none transparent-plus-icon pointer"
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -81,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="backlog-card-footer-container">
+          <div class="backlog-card-footer-container d-none">
             <p class="mx-2">Add Task</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
