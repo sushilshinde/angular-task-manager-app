@@ -1,23 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar style="position: sticky" color="primary">
   <button (click)="drawer.toggle()" mat-button>
     <span class="hussle">hussle</span>
   </button>
 
   <input class="search-bar" type="text" placeholder="Search" />
   <span class="example-spacer"></span>
-  <button mat-button appHighlight>
-    <mat-icon>mail_outline</mat-icon>
-  </button>
 
-  <button (click)="badgevisibility()" mat-button>
-    <mat-icon
-      [hidden]="badgevisible"
-      aria-hidden="false"
-      matBadgeSize="small"
-      matBadge="."
-      >notifications_none</mat-icon
-    >
-  </button>
   <button mat-button appHighlight>
     <mat-icon>account_circle</mat-icon>Profile
   </button>

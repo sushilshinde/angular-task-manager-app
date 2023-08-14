@@ -14,7 +14,7 @@ export class NewListComponent {
     priority: new FormControl('', Validators.required),
   });
   tasks?: any = [];
-  title?:string;
+  title?: string;
   priority?: string;
 
   constructor(private router: Router) {}
@@ -24,13 +24,13 @@ export class NewListComponent {
       title: this.title,
       priority: this.priority,
     };
-    let data:any = localStorage.getItem('all_tasks')
-    this.tasks.push(newTask)
+    let data: any = localStorage.getItem('all_tasks');
+    this.tasks.push(newTask);
     console.log(this.tasks);
     console.log(newTask);
-    console.log(JSON.parse(data))
-    if(this.newTaskForm.valid){
-      this.router.navigate(['admin/home'])
+    console.log(JSON.parse(data));
+    if (this.newTaskForm.valid) {
+      this.router.navigate(['admin/home']);
     }
   }
 }
