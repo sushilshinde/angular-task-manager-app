@@ -24,7 +24,7 @@ export class SignupComponent {
     cnf_password: new FormControl('', Validators.required),
   })
 
-  constructor(private auth: AuthService, private router:Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   onSubmit() {
     if (this.signupForm.valid) {

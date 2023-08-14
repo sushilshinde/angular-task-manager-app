@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  url: string = 'assets/data/db.json';
+  url: string = "http://localhost:3000/murty";
 
   constructor(private http:HttpClient) { }
 
