@@ -36,8 +36,7 @@ export class BacklogComponent implements OnInit {
   onSortToHigh(category:string) {
     this.all_tasks?.forEach((data) => {
       if(data.category === category){
-        data.tasks.sort((a, b) => a.priority.length - b.priority.length)
-        console.log(data.category)
+        data.tasks.sort((a, b) => a.rating - b.rating)
       }
     });
   }
@@ -45,7 +44,7 @@ export class BacklogComponent implements OnInit {
   onSortToLow(category:string) {
     this.all_tasks?.forEach((data) => {
       if(data.category === category){
-        data.tasks.sort((a, b) => b.priority.length - a.priority.length);
+        data.tasks.sort((a, b) => b.rating - a.rating);
       }
     });
   }
