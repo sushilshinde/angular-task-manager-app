@@ -13,7 +13,7 @@
   background-color: blueviolet;
   font-size: medium;
 }
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
@@ -63,8 +63,7 @@
   min-height: 535px;
 }
 
-
-.logout-button{
+.logout-button {
   background-color: transparent;
   color: white;
   padding: 5px 10px;
