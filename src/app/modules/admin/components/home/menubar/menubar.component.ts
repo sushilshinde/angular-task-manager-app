@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
-import { userLogout } from 'src/app/store/task.action';
+//import { userLogout } from 'src/app/store/task.action';
 
 
 
@@ -30,12 +30,9 @@ export class MenubarComponent {
     this.loginTime = auth.getLoginTime(); // Initialize loginTime
   }
 
-  // logout(): void {
-  //   this.auth.logout();
-  // }
-
   logout(): void {
     this.auth.logout();
-    this.store.dispatch(userLogout());
   }
+
+  
 }

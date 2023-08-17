@@ -30,7 +30,7 @@ import { MaterrialDesignModule } from './materrial-design/materrial-design.modul
 import { HighlightDirective } from './custom-directive/highlight.directive';
 import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
 import { StoreModule } from '@ngrx/store';
-import { taskReducer } from './store/task.reducer';
+//import { taskReducer } from './store/task.reducer';
 
 
 
@@ -67,7 +67,7 @@ import { taskReducer } from './store/task.reducer';
         HttpClientModule,
         BrowserAnimationsModule,
         MaterialModule,
-        StoreModule.forRoot({ tasks: taskReducer }),
+        StoreModule.forRoot({}),
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { isUserLogin } from '../store/task.action';
+//import { isLoading, isUserLogin } from '../store/task.action';
 
 
 @Injectable({
@@ -50,39 +50,16 @@ export class AuthService {
   }
 
   // Login with user credentials
-  // login({ email, password }: any): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/users?email=${email}&password=${password}`)
-  //     .pipe(
-  //       map((result: any) => {
-  //         if (result.length > 0) {
-  //           this.setToken('1%ab#3tev67#g*6%');
-  //           this.setLoginTime(); // Store login time
-  //           return { name: '', email };
-  //         } else {
-  //           // throw new Error('Email or Password is incorrect.');
-  //           throw new Error('Email or Password is incorrect.');
-  //         }
-  //       }),
-  //       catchError(error => {
-  //         return throwError(new Error('Email or Password is incorrect.'));
-  //       })
-  //     );
-  // }
-
-
-  // // Login with user credentials
   login({ email, password }: any): Observable<any> {
-
     return this.http.get(`${this.baseUrl}/users?email=${email}&password=${password}`)
       .pipe(
         map((result: any) => {
           if (result.length > 0) {
-            this.store.dispatch(isUserLogin({ isLoggedIn: true }));
-            
             this.setToken('1%ab#3tev67#g*6%');
             this.setLoginTime(); // Store login time
             return { name: '', email };
           } else {
+            // throw new Error('Email or Password is incorrect.');
             throw new Error('Email or Password is incorrect.');
           }
         }),
@@ -91,6 +68,8 @@ export class AuthService {
         })
       );
   }
+
+
 }
 
 
