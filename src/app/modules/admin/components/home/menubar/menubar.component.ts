@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Store } from '@ngrx/store';
+import { userLogout } from 'src/app/store/task.action';
+
+
 
 @Component({
   selector: 'app-menubar',
@@ -22,11 +26,16 @@ export class MenubarComponent {
     this.badgevisible = true;
   }
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private store: Store) {
     this.loginTime = auth.getLoginTime(); // Initialize loginTime
   }
 
+  // logout(): void {
+  //   this.auth.logout();
+  // }
+
   logout(): void {
     this.auth.logout();
+    this.store.dispatch(userLogout());
   }
 }
