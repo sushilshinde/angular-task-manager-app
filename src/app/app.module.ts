@@ -28,6 +28,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MaterrialDesignModule } from './materrial-design/materrial-design.module';
 import { HighlightDirective } from './custom-directive/highlight.directive';
+import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './store/auth.reducer';
+import { AuthEffects } from './store/auth.effects';
+//import { taskReducer } from './store/task.reducer';
 
 
 
@@ -48,6 +54,7 @@ import { HighlightDirective } from './custom-directive/highlight.directive';
         NotFoundComponent,
         HomeComponent,
         HighlightDirective,
+        LoginTimeFormatPipe,
     ],
     imports: [
         BrowserModule,
@@ -63,6 +70,8 @@ import { HighlightDirective } from './custom-directive/highlight.directive';
         HttpClientModule,
         BrowserAnimationsModule,
         MaterialModule,
+        StoreModule.forRoot({ auth: authReducer }), // Include your reducer
+        EffectsModule.forRoot([AuthEffects]), // Include your effects (if needed)
     ],
     providers: [],
     bootstrap: [AppComponent],

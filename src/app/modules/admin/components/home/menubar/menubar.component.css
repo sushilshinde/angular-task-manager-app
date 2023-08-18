@@ -67,3 +67,18 @@
   padding: 5px 10px;
   cursor: pointer;
 }
+
+
+
+/* Add this CSS to your existing styles */
+.login-time {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust the margin as needed for spacing between login time and other elements */
+}
+
+.login-time p {
+  margin: 0; /* Reset margin to remove default spacing */
+  font-size: medium;
+  color: white; /* Set the text color */
+}
