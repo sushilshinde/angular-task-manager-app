@@ -30,6 +30,9 @@ import { MaterrialDesignModule } from './materrial-design/materrial-design.modul
 import { HighlightDirective } from './custom-directive/highlight.directive';
 import { LoginTimeFormatPipe } from './custom-pipe/login-time-format.pipe';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './store/auth.reducer';
+import { AuthEffects } from './store/auth.effects';
 //import { taskReducer } from './store/task.reducer';
 
 
@@ -67,7 +70,8 @@ import { StoreModule } from '@ngrx/store';
         HttpClientModule,
         BrowserAnimationsModule,
         MaterialModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot({ auth: authReducer }), // Include your reducer
+        EffectsModule.forRoot([AuthEffects]), // Include your effects (if needed)
     ],
     providers: [],
     bootstrap: [AppComponent],

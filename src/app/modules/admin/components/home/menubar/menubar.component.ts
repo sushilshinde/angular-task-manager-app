@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
+
+import * as AuthActions from 'src/app/store/auth.actions';
 //import { userLogout } from 'src/app/store/task.action';
 
 
@@ -31,7 +33,8 @@ export class MenubarComponent {
   }
 
   logout(): void {
-    this.auth.logout();
+    //this.auth.logout();
+    this.store.dispatch(AuthActions.isLogout());
   }
 
   
