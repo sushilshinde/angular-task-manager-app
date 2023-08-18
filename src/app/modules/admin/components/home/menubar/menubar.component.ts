@@ -42,7 +42,7 @@ export class MenubarComponent {
  
 
   logout(): void {
-    //this.auth.logout();
+    this.auth.logout();
     this.store.dispatch(AuthActions.isLogout());
   }
 

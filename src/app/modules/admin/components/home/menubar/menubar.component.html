@@ -8,17 +8,11 @@
 
   <div class="login-time" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
-    <p>Login Time: {{ loginTime | loginTimeFormat: '12' }}</p>
-    
+    <p>Login Time: {{ loginTime | loginTimeFormat : "12" }}</p>
   </div>
 
   <button mat-button appHighlight>
-    <mat-icon>mail_outline</mat-icon>
-  </button>
-
-  <button (click)="badgevisibility()" mat-button appHighlight>
-    <mat-icon [hidden]="badgevisible" aria-hidden="false" matBadgeSize="small"
-      matBadge=".">notifications_none</mat-icon>
+    <mat-icon>account_circle</mat-icon>Profile
   </button>
   <div class="logout-button">
     <button mat-button (click)="logout()" appHighlight>
@@ -29,7 +23,13 @@
 
 <!-- SideNave Start -->
 <mat-drawer-container autosize>
-  <mat-drawer #drawer opened="true" mode="side" position="start" style="width: 9%">
+  <mat-drawer
+    #drawer
+    opened="true"
+    mode="side"
+    position="start"
+    style="width: 9%"
+  >
     <div class="div-container">
       <mat-nav-list class="nav-list-container">
         <mat-list-item *ngFor="let menuItem of menuItems">
@@ -59,6 +59,7 @@
           <h1>Studio Board</h1>
 
           <span class="plus-icon-container" (click)="addNewTask()">
+                       
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -67,9 +68,17 @@
               class="bi bi-plus-circle pointer"
               viewBox="0 0 16 16"
             >
+                           
               <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+                           
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+                         
             </svg>
+                     
           </span>
         </div>
 
