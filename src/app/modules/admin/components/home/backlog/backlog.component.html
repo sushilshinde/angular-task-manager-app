@@ -1,6 +1,6 @@
 <div class="row" cdkDropListGroup>
   <div
-    class="col-lg-3 example-container"
+    class="col-lg-3 col-md-4 col-sm-6 example-container"
     *ngFor="let task_category of all_tasks"
   >
     <div class="backlog-container">
@@ -13,14 +13,14 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <div mat-menu-item disabled="">Sort By Title</div>
+              <div mat-menu-item disabled="">Sort By Priority</div>
               <button mat-menu-item (click)="onSortToHigh(task_category.category)">
-                <mat-icon>arrow_forward</mat-icon>
-                <span>A to Z</span>
+                <mat-icon>arrow_upward</mat-icon>
+                <span>Low to high</span>
               </button>
               <button mat-menu-item (click)="onSortToLow(task_category.category)">
-                <mat-icon>arrow_back</mat-icon>
-                <span>Z to A</span>
+                <mat-icon>arrow_downward</mat-icon>
+                <span>High to low</span>
               </button>
             </mat-menu>
           </div>

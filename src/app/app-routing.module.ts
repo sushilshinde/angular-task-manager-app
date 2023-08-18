@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewListComponent } from './new-list/new-list.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 
 
@@ -17,8 +16,7 @@ const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path:'signup', component:SignupComponent},
   { path:'forgot-password', component:ForgotPasswordComponent},
-  { path: 'new-list', component: NewListComponent },
-  { path: 'new-task', component: NewTaskComponent },
+  // { path: 'new-task', component: NewTaskComponent },
   { path:'admin',
     canActivate: [AuthGuard],
    loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule)},

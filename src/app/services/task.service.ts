@@ -8,11 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  url: string = "http://localhost:3000/murty";
+  url: string = "http://localhost:3000";
 
   constructor(private http:HttpClient) { }
 
   get_all_tasks():Observable<TasksDb[]>{
-    return this.http.get<TasksDb[]>(this.url);
+    return this.http.get<TasksDb[]>(`${this.url}/all_tasks`);
   }
+
+  // post_a_task(newTask:any){
+  //   return this.http.post(`${this.url}/all_tasks?category=Backlog`,newTask)
+  // }
 }
