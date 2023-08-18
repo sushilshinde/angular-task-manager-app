@@ -5,14 +5,14 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  constructor(private auth: AuthService) {}
 
   // constructor(private auth: AuthService){}
 
   // logout(): void{
   //   this.auth.logout()
   // }
-
 }
