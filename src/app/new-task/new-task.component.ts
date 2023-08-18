@@ -51,3 +51,4 @@ export class NewTaskComponent {
     // console.log(this.allTasks);
   }
 }
+

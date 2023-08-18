@@ -13,6 +13,13 @@
       "password": "Bharath@msys",
       "cnf_password": "Bharath@msys",
       "id": 2
+    },
+    {
+      "name": "acharjya",
+      "email": "acharjya@gmail.com",
+      "password": "acharjya",
+      "cnf_password": "acharjya",
+      "id": 3
     }
   ],
 
