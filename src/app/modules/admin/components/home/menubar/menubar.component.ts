@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { NewListComponent } from 'src/app/new-list/new-list.component';
+import { NewTaskComponent } from 'src/app/new-task/new-task.component';
 
 @Component({
   selector: 'app-menubar',
@@ -33,6 +33,6 @@ export class MenubarComponent {
   }
 
   addNewTask() {
-    this.dialogRef.open(NewListComponent);
+    this.dialogRef.open(NewTaskComponent);
   }
 }

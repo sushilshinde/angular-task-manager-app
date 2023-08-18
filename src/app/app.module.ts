@@ -17,7 +17,6 @@ import {
     CdkDropListGroup,
     transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { NewListComponent } from './new-list/new-list.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { MenubarComponent } from './modules/admin/components/home/menubar/menubar.component';
 import { MaterialModule } from './material-module';
@@ -38,7 +37,6 @@ import { HighlightDirective } from './custom-directive/highlight.directive';
         AppComponent,
         HomeComponent,
         BacklogComponent,
-        NewListComponent,
         NewTaskComponent,
         MenubarComponent,
         SidenavComponent,

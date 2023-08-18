@@ -18,6 +18,7 @@ export class BacklogComponent implements OnInit {
 
   constructor(private allList: TaskService) {}
 
+  // initializing the data
   ngOnInit(): void {
     // getting the all task data from local storage
     const local_data = localStorage.getItem('all_tasks');
@@ -27,12 +28,12 @@ export class BacklogComponent implements OnInit {
       this.all_tasks = JSON.parse(local_data);
     } else {
       this.allList.get_all_tasks().subscribe((res: any) => {
-        this.all_tasks = res.all_tasks;
+        this.all_tasks = res;
         console.log(this.all_tasks);
       });
     }
   }
-
+//  sorting from low to high 
   onSortToHigh(category:string) {
     this.all_tasks?.forEach((data) => {
       if(data.category === category){
@@ -40,7 +41,7 @@ export class BacklogComponent implements OnInit {
       }
     });
   }
-
+    // sorting from high to low
   onSortToLow(category:string) {
     this.all_tasks?.forEach((data) => {
       if(data.category === category){
@@ -49,7 +50,7 @@ export class BacklogComponent implements OnInit {
     });
   }
 
-  
+  // drag and drop event from angular material cdk
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -66,6 +67,7 @@ export class BacklogComponent implements OnInit {
       );
     }
     console.log('drag and drop event occurs');
+    // storing the modified means after drag, list reorders to be storing in local storage
     localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
     console.log(this.all_tasks);
   }
