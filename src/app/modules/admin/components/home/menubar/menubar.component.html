@@ -10,13 +10,21 @@
   </button>
 
   <button (click)="badgevisibility()" mat-button>
-    <mat-icon [hidden]="badgevisible" aria-hidden="false" matBadgeSize="small" matBadge="."
+    <mat-icon
+      [hidden]="badgevisible"
+      aria-hidden="false"
+      matBadgeSize="small"
+      matBadge="."
       >notifications_none</mat-icon
     >
   </button>
-  <button mat-button appHighlight><mat-icon>account_circle</mat-icon>Profile</button>
+  <button mat-button appHighlight>
+    <mat-icon>account_circle</mat-icon>Profile
+  </button>
   <div class="logout-button">
-    <button mat-button (click)="logout()" appHighlight> <mat-icon>logout</mat-icon>Logout</button>
+    <button mat-button (click)="logout()" appHighlight>
+      <mat-icon>logout</mat-icon>Logout
+    </button>
   </div>
 </mat-toolbar>
 
