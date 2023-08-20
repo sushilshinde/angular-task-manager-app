@@ -18,7 +18,7 @@ export class AuthService {
     private router: Router,
     private http: HttpClient,
     private store: Store
-  ) {}
+  ) { }
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
@@ -55,20 +55,26 @@ export class AuthService {
 
   // Login with user credentials
   login({ email, password }: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}/users?email=${email}&password=${password}`).pipe(
-      map((result: any) => {
-        if (result.length > 0) {
-          this.setToken('1%ab#3tev67#g*6%');
-          this.setLoginTime(); // Store login time
-          this.store.dispatch(AuthActions.isLogin()); // Dispatch login action
-          return { name: '', email };
-        } else {
-          throw new Error('Email or Password is incorrect.');
-        }
-      }),
-      catchError(error => {
-        return throwError(new Error('Email or Password is incorrect.'));
-      })
-    );
+    return this.http.get(`${this.baseUrl}/users?email=${email}&password=${password}`)
+      .pipe(
+        map((result: any) => {
+          if (result.length > 0) {
+            this.setToken('1%ab#3tev67#g*6%');
+            this.setLoginTime();
+
+            // Dispatch action to set logged-in user
+            const user = { name: result[0].name, email };
+            this.store.dispatch(AuthActions.setLoggedInUser({ user: { name: result[0].name, email } }));
+
+
+            return { name: result[0].name, email };
+          } else {
+            throw new Error('Email or Password is incorrect.');
+          }
+        }),
+        catchError(error => {
+          return throwError(new Error('Email or Password is incorrect.'));
+        })
+      );
   }
 }

@@ -6,8 +6,7 @@ import { NewTaskComponent } from 'src/app/new-task/new-task.component';
 import { Store } from '@ngrx/store';
 
 import * as AuthActions from 'src/app/store/auth.actions';
-//import { userLogout } from 'src/app/store/task.action';
-
+import { selectLoggedInUser } from 'src/app/store/auth.selectors';
 
 
 @Component({
@@ -18,6 +17,7 @@ import * as AuthActions from 'src/app/store/auth.actions';
 export class MenubarComponent {
 
   loginTime: Date | null; // Initialize as null
+  loggedInUser$ = this.store.select(selectLoggedInUser);
 
   menuItems = [
     { icon: 'group', label: 'Manage', route: '' },
@@ -38,6 +38,9 @@ export class MenubarComponent {
     private store: Store
   ) {
     this.loginTime = auth.getLoginTime(); // Initialize loginTime
+    this.loggedInUser$.subscribe(user => {
+      console.log('Logged In User:', user);
+    });
   }
  
 

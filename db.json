@@ -20,9 +20,15 @@
       "password": "acharjya",
       "cnf_password": "acharjya",
       "id": 3
+    },
+    {
+      "name": "Raj",
+      "email": "raj@gmail.com",
+      "password": "123456",
+      "cnf_password": "123456",
+      "id": 4
     }
   ],
-
   "all_tasks": [
     {
       "id": 1,
@@ -33,7 +39,9 @@
           "rating": 1,
           "title": "Company website redesign",
           "class": "low-priority",
-          "comments": ["good work"],
+          "comments": [
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -41,7 +49,10 @@
           "rating": 2,
           "title": "Mobile app login process prototype",
           "class": "medium-priority",
-          "comments": ["nice", "good work"],
+          "comments": [
+            "nice",
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -49,7 +60,9 @@
           "rating": 3,
           "title": "Onboarding designs",
           "class": "high-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         }
       ]
@@ -63,7 +76,9 @@
           "rating": 3,
           "title": "Research and strategy for upcoming projects",
           "class": "high-priority",
-          "comments": ["good work"],
+          "comments": [
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -71,7 +86,10 @@
           "rating": 2,
           "title": "Account profile flow diagrams",
           "class": "medium-priority",
-          "comments": ["nice", "good work"],
+          "comments": [
+            "nice",
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -79,7 +97,9 @@
           "rating": 1,
           "title": "Slide templates for client pitch project",
           "class": "low-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         },
         {
@@ -87,7 +107,9 @@
           "rating": 1,
           "title": "Review administrator console designs",
           "class": "low-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         }
       ]
@@ -101,7 +123,9 @@
           "rating": 1,
           "title": "Dashboard layout design",
           "class": "low-priority",
-          "comments": ["good work"],
+          "comments": [
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -109,7 +133,10 @@
           "rating": 3,
           "title": "Social media posts",
           "class": "high-priority",
-          "comments": ["nice", "good work"],
+          "comments": [
+            "nice",
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -117,7 +144,9 @@
           "rating": 1,
           "title": "Shopping cart and catalog wireframes",
           "class": "low-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         },
         {
@@ -125,7 +154,9 @@
           "rating": 2,
           "title": "End user flow charts",
           "class": "medium-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         }
       ]
@@ -139,7 +170,9 @@
           "rating": 1,
           "title": "Review client spec document and give feedback",
           "class": "low-priority",
-          "comments": ["good work"],
+          "comments": [
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -147,7 +180,10 @@
           "rating": 2,
           "title": "Navigation designs",
           "class": "medium-priority",
-          "comments": ["nice", "good work"],
+          "comments": [
+            "nice",
+            "good work"
+          ],
           "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
         },
         {
@@ -155,7 +191,9 @@
           "rating": 1,
           "title": "User profile prototypes",
           "class": "low-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         },
         {
@@ -163,7 +201,9 @@
           "rating": 3,
           "title": "Create style guide based on previous feedback",
           "class": "high-priority",
-          "comments": ["nice"],
+          "comments": [
+            "nice"
+          ],
           "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
         }
       ]
