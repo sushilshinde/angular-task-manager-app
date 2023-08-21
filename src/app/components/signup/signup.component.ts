@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements  OnDestroy{
+export class SignupComponent{
 
   signupForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -44,8 +44,5 @@ export class SignupComponent implements  OnDestroy{
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
-  }
 
 }
