@@ -14,3 +14,4 @@ export const authReducer = createReducer(
   on(AuthActions.isLogin, (state) => ({ ...state, isLoggedIn: true })),
   on(AuthActions.isLogout, (state) => ({ ...state, isLoggedIn: false }))
 );
+
