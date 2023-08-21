@@ -18,7 +18,11 @@ npm install -g @angular/cli
 npm install -g json-server
 
 
-# Install the project dependencies: ‘npm install’
+# Install the project dependencies:
+Install npm packages.
+Install the npm packages described in the package.json and verify that it works:
+
+npm install
 
 
 
