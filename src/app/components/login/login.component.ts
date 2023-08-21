@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy{
   loginForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -20,7 +21,7 @@ export class LoginComponent {
       Validators.maxLength(12),
     ]),
   })
-
+  private subscription!: Subscription;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      this.auth.login({ email, password }).subscribe(
+      this.subscription = this.auth.login({ email, password }).subscribe(
         (result) => {
           this.router.navigate(['admin']);
         },
@@ -42,5 +43,9 @@ export class LoginComponent {
         }
       );
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 }

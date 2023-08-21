@@ -3,7 +3,8 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { TasksDb } from 'src/app/models/tasks.model';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -12,9 +13,11 @@ import { TaskService } from 'src/app/services/task.service';
   templateUrl: './backlog.component.html',
   styleUrls: ['./backlog.component.css'],
 })
-export class BacklogComponent implements OnInit {
+export class BacklogComponent implements OnInit, OnDestroy {
   all_tasks?: TasksDb[];
   value?: string = 'Low'
+
+  private subscription!: Subscription;
 
   constructor(private allList: TaskService) {}
 
@@ -27,7 +30,7 @@ export class BacklogComponent implements OnInit {
     if (local_data != null) {
       this.all_tasks = JSON.parse(local_data);
     } else {
-      this.allList.get_all_tasks().subscribe((res: any) => {
+      this.subscription = this.allList.get_all_tasks().subscribe((res: any) => {
         this.all_tasks = res;
         localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
         console.log(this.all_tasks);
@@ -72,4 +75,8 @@ export class BacklogComponent implements OnInit {
     localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
     console.log(this.all_tasks);
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }                
 }
