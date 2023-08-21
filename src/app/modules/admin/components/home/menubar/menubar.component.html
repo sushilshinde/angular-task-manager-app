@@ -12,7 +12,7 @@
   </div>
 
   <button mat-button appHighlight>
-    <mat-icon>account_circle</mat-icon>Profile
+    <mat-icon>account_circle</mat-icon>Welcome:  {{ (loggedInUser$ | async)?.name }}
   </button>
   <div class="logout-button">
     <button mat-button (click)="logout()" appHighlight>

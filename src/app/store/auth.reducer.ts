@@ -3,14 +3,18 @@ import * as AuthActions from './auth.actions';
 
 export interface AuthState {
   isLoggedIn: boolean;
+  loggedInUser: any;
 }
 
 const initialState: AuthState = {
   isLoggedIn: false,
+  loggedInUser: null,
 };
 
 export const authReducer = createReducer(
   initialState,
   on(AuthActions.isLogin, (state) => ({ ...state, isLoggedIn: true })),
-  on(AuthActions.isLogout, (state) => ({ ...state, isLoggedIn: false }))
+  on(AuthActions.setLoggedInUser, (state, { user }) => ({ ...state, loggedInUser: user })),
+  on(AuthActions.isLogout, (state) => ({ ...state, loggedInUser: null }))
 );
+

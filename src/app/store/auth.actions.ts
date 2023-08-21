@@ -1,4 +1,5 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const isLogin = createAction('[Auth] Is Login');
-export const isLogout = createAction('[Auth] Is Logout');
+export const isLogin = createAction('isLogin');
+export const setLoggedInUser = createAction('setLoggedInUser',props<{ user: any }>());
+export const isLogout = createAction('isLogout');
