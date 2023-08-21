@@ -20,6 +20,20 @@
       "password": "123456",
       "cnf_password": "123456",
       "id": 4
+    },
+    {
+      "name": "testing01",
+      "email": "testing01@gmail.com",
+      "password": "testing01",
+      "cnf_password": "testing01",
+      "id": 5
+    },
+    {
+      "name": "testing02",
+      "email": "testing02@gmail.com",
+      "password": "testing02",
+      "cnf_password": "testing02",
+      "id": 6
     }
   ],
   "all_tasks": [

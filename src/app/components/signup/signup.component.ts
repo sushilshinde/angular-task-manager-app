@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnDestroy{
+export class SignupComponent implements  OnDestroy{
 
   signupForm = new FormGroup({
     name: new FormControl('', Validators.required),

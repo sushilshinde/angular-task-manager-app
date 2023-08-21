@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy{
+export class LoginComponent implements OnInit{
   loginForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -45,7 +45,4 @@ export class LoginComponent implements OnInit, OnDestroy{
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
-  }
 }
