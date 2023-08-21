@@ -29,6 +29,7 @@ export class BacklogComponent implements OnInit {
     } else {
       this.allList.get_all_tasks().subscribe((res: any) => {
         this.all_tasks = res;
+        localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
         console.log(this.all_tasks);
       });
     }
