@@ -3,13 +3,16 @@ import * as AuthActions from './auth.actions';
 
 export interface AuthState {
   isLoggedIn: boolean;
-  loggedInUser: any;
+  loggedInUser: { name: string; email: string } | null;
 }
+
+const loggedInUserFromLocalStorage = localStorage.getItem('loggedInUser');
 
 const initialState: AuthState = {
   isLoggedIn: false,
-  loggedInUser: null,
+  loggedInUser: loggedInUserFromLocalStorage ? JSON.parse(loggedInUserFromLocalStorage) : null,
 };
+
 
 export const authReducer = createReducer(
   initialState,
@@ -17,4 +20,3 @@ export const authReducer = createReducer(
   on(AuthActions.setLoggedInUser, (state, { user }) => ({ ...state, loggedInUser: user })),
   on(AuthActions.isLogout, (state) => ({ ...state, loggedInUser: null }))
 );
-
