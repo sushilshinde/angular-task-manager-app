@@ -5,13 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as AuthActions from '../store/auth.actions'; // Import your AuthActions
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000'; // Change this to your server URL
+  private baseUrl = environment.apiUrl; // Change this to your server URL
   private loginTimeKey = 'loginTime'; // Key for localStorage
 
   constructor(
@@ -59,11 +60,13 @@ export class AuthService {
     return this.http.get(`${this.baseUrl}/users?email=${email}&password=${password}`)
       .pipe(
         map((result: any) => {
+          console.log(result,"result");
           if (result.length > 0) {
+            console.log("if condition");
             this.setToken('1%ab#3tev67#g*6%');
             this.setLoginTime();
-  
-            const user = { name: result[0].name, email };
+            const index=result.findIndex((value:any)=>value.email===email)
+            const user = { name: result[index].name, email };
   
             // Dispatch action to set logged-in user
             this.store.dispatch(AuthActions.setLoggedInUser({ user }));
