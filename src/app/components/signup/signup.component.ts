@@ -1,16 +1,16 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { passwordMatchValidator } from '../validator/password-match.validator';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent{
-
+export class SignupComponent {
   signupForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [
@@ -23,7 +23,9 @@ export class SignupComponent{
       Validators.maxLength(12)
     ]),
     cnf_password: new FormControl('', Validators.required),
-  })
+  }, { validators: passwordMatchValidator() }); // Add the validators option
+
+
   private subscription!: Subscription;
 
   constructor(private auth: AuthService, private router: Router) { }
