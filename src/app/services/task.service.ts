@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  url: string = "http://localhost:3000";
+  url: string = "http://localhost:3000/team-b";
 
   constructor(private http:HttpClient) { }
 

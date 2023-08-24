@@ -11,7 +11,7 @@ import * as AuthActions from '../store/auth.actions'; // Import your AuthActions
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000'; // Change this to your server URL
+  private baseUrl = 'http://localhost:3000/team-b'; // Change this to your server URL
   private loginTimeKey = 'loginTime'; // Key for localStorage
 
   constructor(
