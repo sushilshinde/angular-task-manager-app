@@ -13,7 +13,7 @@ import { TaskService } from 'src/app/services/task.service';
   templateUrl: './backlog.component.html',
   styleUrls: ['./backlog.component.css'],
 })
-export class BacklogComponent implements OnInit, OnDestroy {
+export class BacklogComponent implements OnInit {
   all_tasks?: TasksDb[];
   value?: string = 'Low'
 
@@ -76,7 +76,7 @@ export class BacklogComponent implements OnInit, OnDestroy {
     console.log(this.all_tasks);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
-  }                
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe()
+  // }                
 }
