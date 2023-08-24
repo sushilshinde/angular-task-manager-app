@@ -3,10 +3,11 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TasksDb } from 'src/app/models/tasks.model';
 import { TaskService } from 'src/app/services/task.service';
+import { load_tasks } from 'src/app/store/all-tasks/all-tasks.actions';
 
 @Component({
   selector: 'app-backlog',
@@ -17,9 +18,7 @@ export class BacklogComponent implements OnInit {
   all_tasks?: TasksDb[];
   value?: string = 'Low'
 
-  private subscription!: Subscription;
-
-  constructor(private allList: TaskService) {}
+  constructor(private allList: TaskService, private store: Store<{tasks: TasksDb[]}>) {}
 
   // initializing the data
   ngOnInit(): void {
@@ -30,8 +29,9 @@ export class BacklogComponent implements OnInit {
     if (local_data != null) {
       this.all_tasks = JSON.parse(local_data);
     } else {
-      this.subscription = this.allList.get_all_tasks().subscribe((res: any) => {
-        this.all_tasks = res;
+      this.store.dispatch(load_tasks())
+      this.store.select("tasks").subscribe((res: any) => {
+        this.all_tasks = res.tasks;
         localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
         console.log(this.all_tasks);
       });
