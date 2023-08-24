@@ -72,7 +72,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
-        StoreModule.forRoot({ auth: authReducer ,tasks: allTasksReducer}), // Include your reducer
+        StoreModule.forRoot({ auth: authReducer, tasks: allTasksReducer }), // Include your reducer
         EffectsModule.forRoot([AuthEffects, allTasksEffects]), // Include your effects (if needed)
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
     ],
