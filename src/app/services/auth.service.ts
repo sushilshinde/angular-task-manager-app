@@ -62,20 +62,22 @@ export class AuthService {
         map((result: any) => {
           console.log(result,"result");
           if (result.length > 0) {
-            console.log("if condition");
+            //console.log("if condition");
             this.setToken('1%ab#3tev67#g*6%');
             this.setLoginTime();
-            const index=result.findIndex((value:any)=>value.email===email)
+            //console.log(result);
+            const index=result.findIndex((value:any)=>value.email===email &&value.password===password)
             const user = { name: result[index].name, email };
-  
+            console.log(index)
             // Dispatch action to set logged-in user
             this.store.dispatch(AuthActions.setLoggedInUser({ user }));
   
             // Store user in local storage
             localStorage.setItem('loggedInUser', JSON.stringify(user));
   
-            return { name: result[0].name, email };
-          } else {
+            return { name, email };
+          } 
+          else {
             throw new Error('Email or Password is incorrect.');
           }
         }),
