@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -28,7 +29,14 @@ export class SignupComponent {
 
   private subscription!: Subscription;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private _snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this._snackBar.open('Registration Succesfull!!', 'Ok', {
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
+  }
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -37,6 +45,7 @@ export class SignupComponent {
         (result) => {
           console.log('User registered:', result);
           this.signupForm.reset();
+          this.openSnackBar();
           this.router.navigate(['login']);
         },
         (err: any) => {
