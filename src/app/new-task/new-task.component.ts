@@ -28,7 +28,7 @@ export class NewTaskComponent {
   title?: string;
   priority?: string;
 
-  constructor(private router: Router) {}
+  //constructor(private router: Router) {}
 
   onSubmit() {
     // checking for form validation
@@ -58,7 +58,8 @@ export class NewTaskComponent {
       // now updating the localStorage with updated tasks
       localStorage.setItem('all_tasks',JSON.stringify(this.updatedTasks))
       // this.newTaskForm.reset();
-      this.router.navigate(['admin/home']);
+      //this.router.navigate(['admin/home']);
+      window.location.reload()
     }
   }
 }
