@@ -1,0 +1,37 @@
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.left-section,
+.center-section,
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 24px;
+    margin: 0 4px;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #00aced;
+    /* Change color on hover */
+}

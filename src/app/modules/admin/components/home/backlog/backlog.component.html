@@ -1,0 +1,110 @@
+<div class="row" cdkDropListGroup>
+  <div
+    class="col-lg-3 col-md-4 col-sm-6 example-container"
+    *ngFor="let task_category of all_tasks"
+  >
+    <div class="backlog-container">
+      <div class="card backlog-cards-container">
+        <div class="card-body">
+          <div class="title-container">
+            <h2 class="card-title">{{ task_category.category }}</h2>
+            <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <div mat-menu-item disabled="">Sort By Priority</div>
+              <button mat-menu-item (click)="onSortToHigh(task_category.category)">
+                <mat-icon>arrow_upward</mat-icon>
+                <span>Low to high</span>
+              </button>
+              <button mat-menu-item (click)="onSortToLow(task_category.category)">
+                <mat-icon>arrow_downward</mat-icon>
+                <span>High to low</span>
+              </button>
+            </mat-menu>
+          </div>
+          </div>
+          <div
+            cdkDropList
+            [cdkDropListData]="task_category.tasks"
+            class="cards-container example-list"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              class="card example-box backlog_user_single_card mt-2"
+              *ngFor="let task of task_category.tasks"
+              cdkDrag
+            >
+              <div class="card-body">
+                <p class="card-title priority {{ task.class }}">
+                  {{ task.priority }}
+                </p>
+                <p class="card-text backlog-cards-title">
+                  {{ task.title }}
+                </p>
+                <div class="card-footer-container">
+                  <div class="pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-chat-right mx-2"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"
+                      />
+                    </svg>
+                    <span class="comment">{{ task.comments.length }}</span>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      fill="currentColor"
+                      class="bi bi-plus-circle d-none transparent-plus-icon pointer"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                      />
+                    </svg>
+                    <img
+                      class="avatar-small pointer"
+                      [src]="task.avatar"
+                      alt="avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="backlog-card-footer-container d-none">
+            <p class="mx-2">Add Task</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-plus-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

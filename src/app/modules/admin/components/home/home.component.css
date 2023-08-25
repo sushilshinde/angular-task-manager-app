@@ -1,0 +1,13 @@
+.home-container {
+  padding: 20px;
+  background-color: #e3e8f1;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+

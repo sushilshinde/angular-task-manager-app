@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  height: 100% !important;
+}
+.modal-box {
+  min-height: 170px;
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+.title {
+  font-family: "Lato";
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.list-form {
+  width: 75%;
+}
+.create-button {
+  margin-left: 10px;
+}
+
+ */
