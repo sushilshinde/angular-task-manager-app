@@ -70,7 +70,7 @@ export class AuthService {
             if(index === -1){
               throw new Error('Email or Password is incorrect.');
             }
-            this.setToken('1%ab#3tev67#g*6%');
+            this.setToken('1%ab#thisIsDemoToken#*6%');
             this.setLoginTime();
             const user = { name: result[index].name, email };
             //console.log(index)
