@@ -4,7 +4,17 @@
 
 .search-bar {
   background-color: transparent;
-  border: 0;
+  border: none;
+  outline: none;
+}
+
+::placeholder{
+  color: white;
+  font-size: 17px;
+}
+
+input{
+  color:white;
 }
 
 .hussle {
