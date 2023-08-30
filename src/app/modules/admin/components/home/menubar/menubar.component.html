@@ -3,8 +3,16 @@
     <span>hussle</span>
   </button>
 
-  <input class="search-bar d-none" type="text" placeholder="Search" />
+  <form #searchForm="ngForm">
+    <div class="ps-4">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input class="search-bar" type="text" placeholder="Search for tasks..." required name="searchTerm"
+        autocomplete="off" [(ngModel)]="searchKey" />
+    </div>
+  </form>
+  <!-- <mat-icon>search</mat-icon> -->
   <span class="example-spacer"></span>
+
 
   <div class="login-time d-sm-block d-none" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
@@ -23,13 +31,7 @@
 
 <!-- SideNave Start -->
 <mat-drawer-container autosize>
-  <mat-drawer
-    #drawer
-    opened="true"
-    mode="side"
-    position="start"
-    style="width: 9%"
-  >
+  <mat-drawer #drawer opened="true" mode="side" position="start" style="width: 9%">
     <div class="div-container">
       <mat-nav-list class="nav-list-container">
         <mat-list-item class="side-nav-item" *ngFor="let menuItem of menuItems">
@@ -61,29 +63,54 @@
 
           <span class="plus-icon-container" (click)="addNewTask()">
                        
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              fill="currentColor"
-              class="bi bi-plus-circle pointer"
-              viewBox="0 0 16 16"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-plus-circle pointer" viewBox="0 0 16 16">
+                           
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                            
               <path
-                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-              />
-                           
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-              />
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                          
             </svg>
                      
           </span>
         </div>
 
-        <app-backlog></app-backlog>
+        <!-- <app-backlog></app-backlog> -->
+
+        <!-- Search -->
+
+        <app-backlog *ngIf="searchKey ==''"></app-backlog>
+
+        <hr>
+
+        <div class="results" *ngIf="searchResults && searchKey !==''">
+          <div class="d-flex results-heading">
+            <h5>Search Results</h5>
+            <span class="ms-auto">{{searchResultCount}} result found...</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr class="text-start">
+                <th scope="col">S.No</th>
+                <th scope="col">Title</th>
+                <th scope="col" class="text-center">Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let search of searchResults; index as i">
+                <th scope="row">{{i+1}}</th>
+                <td class="text-start">{{search.title}}</td>
+                <!-- <td>{{search.class}}</td> -->
+                <td [ngStyle]="{'background-color': getColorByPriority(search.class), 'font-weight':'bold'}">
+                  {{ search.class }}
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
   </mat-drawer-content>
