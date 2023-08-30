@@ -4,12 +4,13 @@
   </button>
 
   <form #searchForm="ngForm">
-    <div class="ps-4">
+    <div class="ps-4" >
+      <mat-icon class="search-icon">search</mat-icon>
       <input class="search-bar" type="text" placeholder="Search for tasks..." required name="searchTerm"
         autocomplete="off" [(ngModel)] = "searchKey" />
     </div>
   </form>
-  <mat-icon>search</mat-icon>
+  <!-- <mat-icon>search</mat-icon> -->
   <span class="example-spacer"></span>
 
 

@@ -102,3 +102,9 @@ input{
   font-size: medium;
   color: white; /* Set the text color */
 }
+
+
+.search-icon{
+  padding-top: 5px ;
+  margin-left: 50px;
+}
