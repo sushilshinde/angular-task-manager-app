@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +32,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { authReducer } from './store/auth.reducer';
 import { AuthEffects } from './store/auth.effects';
+import { allTasksReducer } from './store/all-tasks/all-tasks.reducer';
+import { allTasksEffects } from './store/all-tasks/all-tasks.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 //import { taskReducer } from './store/task.reducer';
 
 
@@ -69,8 +72,9 @@ import { AuthEffects } from './store/auth.effects';
         BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
-        StoreModule.forRoot({ auth: authReducer }), // Include your reducer
-        EffectsModule.forRoot([AuthEffects]), // Include your effects (if needed)
+        StoreModule.forRoot({ auth: authReducer, tasks: allTasksReducer }), // Include your reducer
+        EffectsModule.forRoot([AuthEffects, allTasksEffects]), // Include your effects (if needed)
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
     ],
     providers: [],
     bootstrap: [AppComponent],

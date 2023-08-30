@@ -23,14 +23,19 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-group">
       <mat-label>Priority</mat-label>
-      <input
+      <mat-select [(ngModel)]="priority" name="priority" formControlName="priority">
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{option.viewValue}}
+        </mat-option>
+      </mat-select>
+      <!-- <input
         matInput
         type="text"
         name="priority"
         placeholder="Enter your task priority"
         formControlName="priority"
         [(ngModel)]="priority"
-      />
+      /> -->
       <mat-hint
         *ngIf="
           !newTaskForm.get('priority')?.valid &&

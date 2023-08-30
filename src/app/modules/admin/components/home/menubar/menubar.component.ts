@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,8 +6,8 @@ import { NewTaskComponent } from 'src/app/new-task/new-task.component';
 import { Store } from '@ngrx/store';
 
 import * as AuthActions from 'src/app/store/auth.actions';
-//import { userLogout } from 'src/app/store/task.action';
-
+import { selectLoggedInUser } from 'src/app/store/auth.selectors';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,9 +15,10 @@ import * as AuthActions from 'src/app/store/auth.actions';
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.css'],
 })
-export class MenubarComponent {
+export class MenubarComponent implements OnDestroy{
 
   loginTime: Date | null; // Initialize as null
+  loggedInUser$ = this.store.select(selectLoggedInUser);
 
   menuItems = [
     { icon: 'group', label: 'Manage', route: '' },
@@ -31,6 +32,8 @@ export class MenubarComponent {
     this.badgevisible = true;
   }
 
+  private subscription!: Subscription;
+
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -38,6 +41,9 @@ export class MenubarComponent {
     private store: Store
   ) {
     this.loginTime = auth.getLoginTime(); // Initialize loginTime
+    this.subscription = this.loggedInUser$.subscribe(user => {
+      console.log('Logged In User:', user);
+    });
   }
  
 
@@ -49,4 +55,10 @@ export class MenubarComponent {
   addNewTask() {
     this.dialogRef.open(NewTaskComponent);
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
 }
+
+

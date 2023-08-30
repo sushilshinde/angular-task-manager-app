@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  url: string = "http://localhost:3000";
+  url: string = "http://localhost:3000/team-b";
 
   constructor(private http:HttpClient) { }
 
@@ -16,7 +16,7 @@ export class TaskService {
     return this.http.get<TasksDb[]>(`${this.url}/all_tasks`);
   }
 
-  // post_a_task(newTask:any){
-  //   return this.http.post(`${this.url}/all_tasks?category=Backlog`,newTask)
-  // }
+  update_all_tasks(all_tasks:any){
+    return this.http.post(`${this.url}/all_tasks`,all_tasks)
+  }
 }

@@ -41,13 +41,21 @@
 
 .nav-list-container {
   flex-grow: 1;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
 }
 
+.side-nav-item{
+  margin-top: 40px;
+  /* margin-bottom: 40px; */
+  padding: 20px;
+  
+}
 .list-item-div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-item-icon {

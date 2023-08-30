@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -20,8 +22,8 @@ export class LoginComponent {
       Validators.maxLength(12),
     ]),
   })
-
-  constructor(private auth: AuthService, private router: Router) { }
+  private subscription!: Subscription;
+  constructor(private auth: AuthService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     if (this.auth.isLoggedIn()) {
@@ -29,13 +31,21 @@ export class LoginComponent {
     }
   }
 
+  openSnackBar() {
+    const config = new MatSnackBarConfig();
+    config.horizontalPosition = 'center';
+    config.verticalPosition = 'top';
+    this._snackBar.open('Login Successful!', 'Ok');
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      this.auth.login({ email, password }).subscribe(
+      this.subscription = this.auth.login({ email, password }).subscribe(
         (result) => {
           this.router.navigate(['admin']);
+          this.openSnackBar();
         },
         (err: Error) => {
           alert(err.message);
@@ -43,4 +53,5 @@ export class LoginComponent {
       );
     }
   }
+
 }

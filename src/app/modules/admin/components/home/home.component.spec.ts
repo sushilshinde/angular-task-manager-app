@@ -7,9 +7,9 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [HomeComponent]
-    });
+    // TestBed.configureTestingModule({
+    //   declarations: [HomeComponent, menubar]
+    // });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

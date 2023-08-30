@@ -1,18 +1,18 @@
 <mat-toolbar style="position: sticky" color="primary">
-  <button (click)="drawer.toggle()" mat-button>
-    <span class="hussle">hussle</span>
+  <button class="hussle" (click)="drawer.toggle()" mat-button>
+    <span>hussle</span>
   </button>
 
-  <input class="search-bar" type="text" placeholder="Search" />
+  <input class="search-bar d-none" type="text" placeholder="Search" />
   <span class="example-spacer"></span>
 
-  <div class="login-time" *ngIf="loginTime !== null">
+  <div class="login-time d-sm-block d-none" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
     <p>Login Time: {{ loginTime | loginTimeFormat : "12" }}</p>
   </div>
 
   <button mat-button appHighlight>
-    <mat-icon>account_circle</mat-icon>Profile
+    <mat-icon>account_circle</mat-icon>{{ (loggedInUser$ | async)?.name | uppercase }}
   </button>
   <div class="logout-button">
     <button mat-button (click)="logout()" appHighlight>
@@ -32,12 +32,13 @@
   >
     <div class="div-container">
       <mat-nav-list class="nav-list-container">
-        <mat-list-item *ngFor="let menuItem of menuItems">
-          <div class="list-item-div">
+        <mat-list-item class="side-nav-item" *ngFor="let menuItem of menuItems">
+          <div class="list-item-div" routerLink="{{ menuItem.route }}">
             <mat-icon class="menu-item-icon">{{ menuItem.icon }}</mat-icon>
-            <button routerLink="{{ menuItem.route }}" mat-button>
+            <span mat-button>{{ menuItem.label }}</span>
+            <!-- <button routerLink="{{ menuItem.route }}" mat-button>
               {{ menuItem.label }}
-            </button>
+            </button> -->
           </div>
         </mat-list-item>
       </mat-nav-list>
