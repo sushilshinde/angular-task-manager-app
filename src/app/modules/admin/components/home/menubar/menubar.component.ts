@@ -10,7 +10,6 @@ import { selectLoggedInUser } from 'src/app/store/auth.selectors';
 import { concatMap, debounceTime, distinctUntilChanged, EMPTY, filter, map, pluck, Subscription, switchMap } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { SearchService } from 'src/app/services/search.service';
-import { Search } from 'src/app/appInterface/search.interface';
 
 
 @Component({
@@ -77,7 +76,7 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
       // map(data => data.searchTerm)
       //or
       // map(data => data['searchTerm'])
-      //or
+      //or pluck
       filter(() => !!this.searchForm?.valid),
       pluck('searchTerm'),
       debounceTime(500),
@@ -86,7 +85,7 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
     
     )
       .subscribe(res => {
-        console.log(res)
+        console.log("Search results :",res)
         this.searchResults = res;
         this.searchResultCount = Object.keys(res).length;
       })

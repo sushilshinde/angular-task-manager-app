@@ -11,13 +11,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   getSearches(searchTerm: String): Observable<Search> {
-    // if (searchTerm === '') {
-    //   return [];
-    // }
-    console.log(searchTerm.trim().length, "search");
-    if (searchTerm.trim().length > 0) {
-      console.log("hello saikat");
-    }
+    console.log("Search term :", searchTerm);
     return this.http.get<Search>(this.url + '?q=' + searchTerm.trim())
   }
 
