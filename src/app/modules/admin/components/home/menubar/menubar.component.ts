@@ -93,6 +93,21 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
 
   }
 
+
+  getColorByPriority(priority: string): string {
+    switch (priority) {
+      case 'low-priority':
+        return '#5196f6';
+      case 'high-priority':
+        return '#ce5388';
+      case 'medium-priority':
+        return '#6bc8d1';
+      default:
+        return 'black'; 
+    }
+  }
+  
+
   ngOnDestroy() {
     this.subscription.unsubscribe()
   }

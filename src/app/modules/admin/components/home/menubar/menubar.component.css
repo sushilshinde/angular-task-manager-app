@@ -32,6 +32,7 @@ input{
 }
 
 .home-container {
+  height: 100vh;
   padding: 20px;
   background-color: #e3e8f1;
 }
@@ -107,4 +108,9 @@ input{
 .search-icon{
   padding-top: 5px ;
   margin-left: 50px;
+}
+
+.table, .results-heading{
+  width: 70%;
+  margin: auto;
 }
