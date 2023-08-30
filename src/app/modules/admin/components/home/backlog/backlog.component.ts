@@ -20,23 +20,13 @@ export class BacklogComponent implements OnInit {
 
   constructor(private allList: TaskService, private store: Store<{tasks: TasksDb[]}>) {}
 
-  // initializing the data
   ngOnInit(): void {
-    // getting the all task data from local storage
-    const local_data = localStorage.getItem('all_tasks');
+    this.allList.get_all_tasks().subscribe((res:any) => {
+      this.all_tasks = res;
+      console.log(this.all_tasks);
+    })
+  }  
 
-    // checking if all task are available or not in local storage
-    if (local_data != null) {
-      this.all_tasks = JSON.parse(local_data);
-    } else {
-      this.store.dispatch(load_tasks())
-      this.store.select("tasks").subscribe((res: any) => {
-        this.all_tasks = res.tasks;
-        localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
-        console.log(this.all_tasks);
-      });
-    }
-  }
 //  sorting from low to high 
   onSortToHigh(category:string) {
     this.all_tasks?.forEach((data) => {
@@ -71,8 +61,7 @@ export class BacklogComponent implements OnInit {
       );
     }
     console.log('drag and drop event occurs');
-    // storing the modified means after drag, list reorders to be storing in local storage
-    localStorage.setItem('all_tasks', JSON.stringify(this.all_tasks));
+    this.allList.update_all_tasks(this.all_tasks).subscribe((res) => console.log(res))
     console.log(this.all_tasks);
   }
 
