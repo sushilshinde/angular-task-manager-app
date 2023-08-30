@@ -1,13 +1,12 @@
 This "angular-task-manager-app" contains an Angular application that utilizes JSON data, Material UI, Bootstrap, and Material Icons. The application also integrates with a JSON server to provide a mock backend. This README will guide you through setting up and running the application.
 
-
 # Prerequisites:
+
 Before you begin, ensure you have the following software installed:
 
 Node.js and npm (Node Package Manager)
 Angular CLI
 JSON Server
-
 
 # You can install Angular CLI using the following command
 
@@ -17,14 +16,12 @@ npm install -g @angular/cli
 
 npm install -g json-server
 
-
 # Install the project dependencies:
+
 Install npm packages.
 Install the npm packages described in the package.json and verify that it works:
 
 npm install
-
-
 
 # Running the Application:
 

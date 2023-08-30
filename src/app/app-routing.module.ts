@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewTaskComponent } from './new-task/new-task.component';
-
+// import { NewTaskComponent } from './new-task/new-task.component';
 
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/login/login.component';
@@ -12,18 +11,18 @@ import { AuthGuard } from './guards/auth.guard';
 //import { AdminModule } from './modules/admin/admin.module';
 
 const routes: Routes = [
-  { path:'', redirectTo:'login', pathMatch:'full'},
-  { path:'login', component:LoginComponent},
-  { path:'signup', component:SignupComponent},
-  { path:'forgot-password', component:ForgotPasswordComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   // { path: 'new-task', component: NewTaskComponent },
-  { path:'admin',
+  {
+    path: 'admin',
     canActivate: [AuthGuard],
-   loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule)},
-  { path:'**', component:NotFoundComponent},
-  
-
-
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
