@@ -3,7 +3,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store';
 import { TasksDb } from 'src/app/models/tasks.model';
 import { TaskService } from 'src/app/services/task.service';
