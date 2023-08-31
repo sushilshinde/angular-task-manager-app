@@ -32,7 +32,7 @@ input{
 }
 
 .home-container {
-  height: 100vh;
+  /* height: 100vh; */
   padding: 20px;
   background-color: #e3e8f1;
 }
@@ -113,4 +113,10 @@ input{
 .table, .results-heading{
   width: 70%;
   margin: auto;
+}
+
+.results{
+  height: 70vh;
+  overflow:auto;
+  /* overflow-x: hidden; */
 }
