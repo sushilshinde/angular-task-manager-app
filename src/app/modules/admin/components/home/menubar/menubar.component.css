@@ -4,7 +4,17 @@
 
 .search-bar {
   background-color: transparent;
-  border: 0;
+  border: none;
+  outline: none;
+}
+
+::placeholder{
+  color: white;
+  font-size: 17px;
+}
+
+input{
+  color:white;
 }
 
 .hussle {
@@ -22,6 +32,7 @@
 }
 
 .home-container {
+  height: 100vh;
   padding: 20px;
   background-color: #e3e8f1;
 }
@@ -91,4 +102,15 @@
   margin: 0; /* Reset margin to remove default spacing */
   font-size: medium;
   color: white; /* Set the text color */
+}
+
+
+.search-icon{
+  padding-top: 5px ;
+  margin-left: 50px;
+}
+
+.table, .results-heading{
+  width: 70%;
+  margin: auto;
 }

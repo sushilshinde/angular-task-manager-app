@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -26,7 +27,8 @@ describe('LoginComponent', () => {
         MaterrialDesignModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatSnackBarModule
       ],
       providers: [AuthService], // Add AuthService to providers
     });
