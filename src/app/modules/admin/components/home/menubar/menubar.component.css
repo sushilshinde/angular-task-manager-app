@@ -118,5 +118,4 @@ input{
 .results{
   height: 70vh;
   overflow:auto;
-  /* overflow-x: hidden; */
 }
