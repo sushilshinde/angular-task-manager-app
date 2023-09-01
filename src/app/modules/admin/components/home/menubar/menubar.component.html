@@ -84,7 +84,7 @@
 
         <hr>
 
-        <div class="results" *ngIf="searchResults && searchKey.trim() !==''">
+        <div class="results" *ngIf="searchResults && searchKey.trim() !=='' && searchResultCount !==0">
           <div class="d-flex results-heading">
             <h5>Search Results</h5>
             <span class="ms-auto">{{searchResultCount}} result found...</span>
@@ -109,6 +109,11 @@
 
             </tbody>
           </table>
+        </div>
+        <!-- <mat-spinner></mat-spinner> -->
+        <div class="no-result" *ngIf="searchResultCount==0">
+          <h1>OOPS!</h1>
+          <h1>NO RESULT FOUND</h1>
         </div>
 
       </div>

@@ -115,7 +115,8 @@ input{
   margin: auto;
 }
 
-.results{
+.results,.no-result{
   height: 70vh;
   overflow:auto;
 }
+
