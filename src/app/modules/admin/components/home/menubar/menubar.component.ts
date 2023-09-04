@@ -19,7 +19,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class MenubarComponent implements AfterViewInit, OnDestroy {
 
-  searchKey:String = '';
+  searchKey: String = '';
   loginTime: Date | null; // Initialize as null
   loggedInUser$ = this.store.select(selectLoggedInUser);
 
@@ -82,10 +82,10 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
       debounceTime(500),
       distinctUntilChanged(),
       switchMap(data => this._searchService.getSearches(data))
-    
+
     )
       .subscribe(res => {
-        console.log("Search results :",res)
+        console.log("Search results :", res)
         this.searchResults = res;
         this.searchResultCount = Object.keys(res).length;
       })
@@ -102,10 +102,10 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
       case 'medium-priority':
         return '#6bc8d1';
       default:
-        return 'black'; 
+        return 'black';
     }
   }
-  
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe()

@@ -1,4 +1,4 @@
-<mat-toolbar style="position: sticky" color="primary">
+<mat-toolbar style="position: sticky; top:0;z-index: 2;" color="primary">
   <button class="hussle" (click)="drawer.toggle()" mat-button>
     <span>hussle</span>
   </button>
@@ -80,11 +80,11 @@
 
         <!-- Search -->
 
-        <app-backlog *ngIf="searchKey ==''"></app-backlog>
+        <app-backlog *ngIf="searchKey.trim() ===''"></app-backlog>
 
         <hr>
 
-        <div class="results" *ngIf="searchResults && searchKey !==''">
+        <div class="results" *ngIf="searchResults && searchKey.trim() !=='' && searchResultCount !==0">
           <div class="d-flex results-heading">
             <h5>Search Results</h5>
             <span class="ms-auto">{{searchResultCount}} result found...</span>
@@ -109,6 +109,14 @@
 
             </tbody>
           </table>
+        </div>
+        <!-- <mat-spinner></mat-spinner> -->
+
+        <!-- NO RESULT FOUND Meassge -->
+        
+        <div class="no-result" *ngIf="searchResultCount==0">
+          <h1>OOPS!</h1>
+          <h1>NO RESULT FOUND</h1>
         </div>
 
       </div>
