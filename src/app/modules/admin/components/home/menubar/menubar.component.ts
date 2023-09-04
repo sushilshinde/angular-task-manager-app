@@ -30,6 +30,7 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
     { icon: 'assessment', label: 'Reports', route: '' },
   ];
 
+  loading: boolean = false;
   badgevisible = false;
   badgevisibility() {
     this.badgevisible = true;
@@ -78,16 +79,21 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
       // map(data => data['searchTerm'])
       //or pluck
       filter(() => !!this.searchForm?.valid),
-      pluck('searchTerm'),
+      // pluck('searchTerm'),
+      map(data => data.searchTerm),
       debounceTime(500),
       distinctUntilChanged(),
-      switchMap(data => this._searchService.getSearches(data))
+      switchMap(data => {
+        this.loading = true; // Show spinner while loading
+        return this._searchService.getSearches(data);
+      })
 
     )
       .subscribe(res => {
         console.log("Search results :", res)
         this.searchResults = res;
         this.searchResultCount = Object.keys(res).length;
+        this.loading = false; // Hide spinner once data is loaded
       })
 
   }
