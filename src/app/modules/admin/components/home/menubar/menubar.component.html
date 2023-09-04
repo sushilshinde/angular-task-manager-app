@@ -14,7 +14,7 @@
   <span class="example-spacer"></span>
 
 
-  <div class="login-time d-sm-block d-none" *ngIf="loginTime !== null">
+  <div class="login-time d-sm-block" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
     <p>Login Time: {{ loginTime | loginTimeFormat : "12" }}</p>
   </div>
