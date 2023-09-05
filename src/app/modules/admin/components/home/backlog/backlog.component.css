@@ -33,6 +33,14 @@
     justify-content: space-between;
     align-items: center;
 }
+.priority-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete-button{
+    
+}
 .priority{
     width: fit-content;
     color: #ffffff;

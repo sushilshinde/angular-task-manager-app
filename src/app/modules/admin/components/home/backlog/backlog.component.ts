@@ -6,7 +6,7 @@ import {
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store';
 import { TasksDb } from 'src/app/models/tasks.model';
-import { TaskService } from 'src/app/services/task.service';
+import { TaskService } from 'src/app/services/task.service'
 import { load_tasks } from 'src/app/store/all-tasks/all-tasks.actions';
 
 @Component({
@@ -26,6 +26,18 @@ export class BacklogComponent implements OnInit {
       console.log(this.all_tasks);
     })
   }  
+
+  // deleting tasks which are completed if delete icons clicks
+  deleteTask(category:string, task:string){
+    this.all_tasks?.forEach((data) => {
+      if(data.category === category){
+        let result = data.tasks.filter((each_task) => each_task.title !== task)
+        data.tasks = result;
+      }
+    })
+    this.allList.update_all_tasks(this.all_tasks).subscribe((res) => console.log(res))
+    console.log("action from delete",this.all_tasks)
+  }
 
 //  sorting from low to high 
   onSortToHigh(category:string) {
