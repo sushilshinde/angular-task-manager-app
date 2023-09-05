@@ -27,6 +27,18 @@ export class BacklogComponent implements OnInit {
     })
   }  
 
+  // deleting tasks which are completed if delete icons clicks
+  deleteTask(category:string, task:string){
+    this.all_tasks?.forEach((data) => {
+      if(data.category === category){
+        let result = data.tasks.filter((each_task) => each_task.title !== task)
+        data.tasks = result;
+      }
+    })
+    this.allList.update_all_tasks(this.all_tasks).subscribe((res) => console.log(res))
+    console.log("action from delete",this.all_tasks)
+  }
+
 //  sorting from low to high 
   onSortToHigh(category:string) {
     this.all_tasks?.forEach((data) => {

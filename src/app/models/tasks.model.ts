@@ -1,4 +1,5 @@
 export interface TasksDb {
+  id: number,
   category: string;
   tasks: Task[];
 }
