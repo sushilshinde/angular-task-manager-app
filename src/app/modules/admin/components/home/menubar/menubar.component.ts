@@ -7,10 +7,19 @@ import { Store } from '@ngrx/store';
 
 import * as AuthActions from 'src/app/store/auth.actions';
 import { selectLoggedInUser } from 'src/app/store/auth.selectors';
-import { concatMap, debounceTime, distinctUntilChanged, EMPTY, filter, map, pluck, Subscription, switchMap } from 'rxjs';
+import {
+  concatMap,
+  debounceTime,
+  distinctUntilChanged,
+  EMPTY,
+  filter,
+  map,
+  pluck,
+  Subscription,
+  switchMap,
+} from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { SearchService } from 'src/app/services/search.service';
-
 
 @Component({
   selector: 'app-menubar',
@@ -18,8 +27,7 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./menubar.component.css'],
 })
 export class MenubarComponent implements AfterViewInit, OnDestroy {
-
-  searchKey:String = '';
+  searchKey: String = '';
   loginTime: Date | null; // Initialize as null
   loggedInUser$ = this.store.select(selectLoggedInUser);
 
@@ -48,13 +56,11 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
     private store: Store,
     private _searchService: SearchService
   ) {
-
     this.loginTime = auth.getLoginTime(); // Initialize loginTime
-    this.subscription = this.loggedInUser$.subscribe(user => {
+    this.subscription = this.loggedInUser$.subscribe((user) => {
       console.log('Logged In User:', user);
     });
   }
-
 
   logout(): void {
     this.auth.logout();
@@ -72,26 +78,24 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
 
     const formValue = this.searchForm?.valueChanges;
 
-    formValue?.pipe(
-      // map(data => data.searchTerm)
-      //or
-      // map(data => data['searchTerm'])
-      //or pluck
-      filter(() => !!this.searchForm?.valid),
-      pluck('searchTerm'),
-      debounceTime(500),
-      distinctUntilChanged(),
-      switchMap(data => this._searchService.getSearches(data))
-    
-    )
-      .subscribe(res => {
-        console.log("Search results :",res)
+    formValue
+      ?.pipe(
+        // map(data => data.searchTerm)
+        //or
+        // map(data => data['searchTerm'])
+        //or pluck
+        filter(() => !!this.searchForm?.valid),
+        pluck('searchTerm'),
+        debounceTime(500),
+        distinctUntilChanged(),
+        switchMap((data) => this._searchService.getSearches(data))
+      )
+      .subscribe((res) => {
+        console.log('Search results :', res);
         this.searchResults = res;
         this.searchResultCount = Object.keys(res).length;
-      })
-
+      });
   }
-
 
   getColorByPriority(priority: string): string {
     switch (priority) {
@@ -102,14 +106,11 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
       case 'medium-priority':
         return '#6bc8d1';
       default:
-        return 'black'; 
+        return 'black';
     }
   }
-  
 
   ngOnDestroy() {
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 }
-
-
