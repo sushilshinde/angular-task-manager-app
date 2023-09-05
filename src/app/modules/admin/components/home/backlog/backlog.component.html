@@ -9,21 +9,31 @@
           <div class="title-container">
             <h2 class="card-title">{{ task_category.category }}</h2>
             <div>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <div mat-menu-item disabled="">Sort By Priority</div>
-              <button mat-menu-item (click)="onSortToHigh(task_category.category)">
-                <mat-icon>arrow_upward</mat-icon>
-                <span>Low to high</span>
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+              >
+                <mat-icon>more_vert</mat-icon>
               </button>
-              <button mat-menu-item (click)="onSortToLow(task_category.category)">
-                <mat-icon>arrow_downward</mat-icon>
-                <span>High to low</span>
-              </button>
-            </mat-menu>
-          </div>
+              <mat-menu #menu="matMenu">
+                <div mat-menu-item disabled="">Sort By Priority</div>
+                <button
+                  mat-menu-item
+                  (click)="onSortToHigh(task_category.category)"
+                >
+                  <mat-icon>arrow_upward</mat-icon>
+                  <span>Low to high</span>
+                </button>
+                <button
+                  mat-menu-item
+                  (click)="onSortToLow(task_category.category)"
+                >
+                  <mat-icon>arrow_downward</mat-icon>
+                  <span>High to low</span>
+                </button>
+              </mat-menu>
+            </div>
           </div>
           <div
             cdkDropList
@@ -37,9 +47,21 @@
               cdkDrag
             >
               <div class="card-body">
-                <p class="card-title priority {{ task.class }}">
-                  {{ task.priority }}
-                </p>
+                <div class="priority-container">
+                  <p class="card-title priority {{ task.class }}">
+                    {{ task.priority }}
+                  </p>
+                  <button
+                    *ngIf="task_category.id == 4"
+                    class="delete-button"
+                    mat-icon-button
+                    matTooltip="Basic"
+                    aria-label="Example icon-button with a delete icon"
+                    (click) = deleteTask(task_category.category,task.title)
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
                 <p class="card-text backlog-cards-title">
                   {{ task.title }}
                 </p>
