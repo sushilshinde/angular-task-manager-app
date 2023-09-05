@@ -8,13 +8,13 @@
   outline: none;
 }
 
-::placeholder{
+::placeholder {
   color: white;
   font-size: 17px;
 }
 
-input{
-  color:white;
+input {
+  color: white;
 }
 
 .hussle {
@@ -23,6 +23,7 @@ input{
   background-color: blueviolet;
   font-size: medium;
 }
+
 .pointer {
   cursor: pointer;
 }
@@ -32,7 +33,7 @@ input{
 }
 
 .home-container {
-  height: 100vh;
+  /* height: 100vh; */
   padding: 20px;
   background-color: #e3e8f1;
 }
@@ -56,12 +57,13 @@ input{
   padding-bottom: 10px; */
 }
 
-.side-nav-item{
+.side-nav-item {
   margin-top: 40px;
   /* margin-bottom: 40px; */
   padding: 20px;
-  
+
 }
+
 .list-item-div {
   display: flex;
   flex-direction: column;
@@ -95,22 +97,40 @@ input{
 .login-time {
   display: flex;
   align-items: center;
-  margin-right: 20px; /* Adjust the margin as needed for spacing between login time and other elements */
+  margin-right: 20px;
+  /* Adjust the margin as needed for spacing between login time and other elements */
 }
 
 .login-time p {
-  margin: 0; /* Reset margin to remove default spacing */
+  margin: 0;
+  /* Reset margin to remove default spacing */
   font-size: medium;
-  color: white; /* Set the text color */
+  color: white;
+  /* Set the text color */
 }
 
 
-.search-icon{
-  padding-top: 5px ;
+.search-icon {
+  padding-top: 5px;
   margin-left: 50px;
 }
 
-.table, .results-heading{
+.table,
+.results-heading {
   width: 70%;
   margin: auto;
+}
+
+.results,
+.no-result {
+  height: 70vh;
+  overflow: auto;
+}
+
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }

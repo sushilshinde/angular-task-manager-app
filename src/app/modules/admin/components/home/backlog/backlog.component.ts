@@ -6,7 +6,7 @@ import {
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store';
 import { TasksDb } from 'src/app/models/tasks.model';
-import { TaskService } from 'src/app/services/task.service';
+import { TaskService } from 'src/app/services/task.service'
 import { load_tasks } from 'src/app/store/all-tasks/all-tasks.actions';
 
 @Component({
