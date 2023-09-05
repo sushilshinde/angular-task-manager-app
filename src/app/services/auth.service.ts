@@ -36,8 +36,10 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('loggedInUser'); // Remove user from local storage
+    localStorage.removeItem('loginTime')
     // localStorage.removeItem('all_tasks')
     this.store.dispatch(AuthActions.isLogout()); // Dispatch logout action
+    //localStorage.clear();
     this.router.navigate(['login']);
   }
 
@@ -68,10 +70,10 @@ export class AuthService {
             if(index === -1){
               throw new Error('Email or Password is incorrect.');
             }
-            this.setToken('1%ab#3tev67#g*6%');
+            this.setToken('1%ab#thisIsDemoToken#*6%');
             this.setLoginTime();
             const user = { name: result[index].name, email };
-            console.log(index)
+            //console.log(index)
             // Dispatch action to set logged-in user
             this.store.dispatch(AuthActions.setLoggedInUser({ user }));
   
