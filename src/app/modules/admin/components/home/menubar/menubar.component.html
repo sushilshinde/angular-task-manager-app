@@ -156,7 +156,7 @@
 
         <div
           class="no-result"
-          *ngIf="searchResultCount == 0 && loading == false"
+          *ngIf="searchResultCount == 0 && loading == false && searchKey.trim() !== ''"
         >
           <h1>OOPS!</h1>
           <h1>NO RESULT FOUND</h1>
