@@ -33,7 +33,7 @@ input {
 }
 
 .home-container {
-  /* height: 100vh; */
+  min-height: 100vh;
   padding: 20px;
   background-color: #e3e8f1;
 }
