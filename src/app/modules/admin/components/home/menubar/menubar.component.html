@@ -14,7 +14,7 @@
   <span class="example-spacer"></span>
 
 
-  <div class="login-time d-sm-block d-none" *ngIf="loginTime !== null">
+  <div class="login-time d-sm-block" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
     <p>Login Time: {{ loginTime | loginTimeFormat : "12" }}</p>
   </div>
@@ -121,7 +121,7 @@
 
         <!-- NO RESULT FOUND Meassge -->
         
-        <div class="no-result" *ngIf="searchResultCount==0 && loading == false">
+        <div class="no-result" *ngIf="searchResultCount==0 && loading == false && searchKey.trim() !=='' ">
           <h1>OOPS!</h1>
           <h1>NO RESULT FOUND</h1>
         </div>
