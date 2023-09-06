@@ -1,9 +1,14 @@
 .notFound-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
     height: 100vh;
-    background-color: rgba(44, 198, 245, 0.171);
+    background-image: url('/assets/demo-bg.jpeg');
+    background-size: cover;
+    background-color: rgb(241, 243, 245);
+    background-attachment: fixed, scroll;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .error-card {
@@ -12,8 +17,9 @@
     padding: 45px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: auto;
     background-color: #03d2f733;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
 }
 
 .error-heading {
@@ -30,4 +36,58 @@
 mat-card-actions {
     display: flex;
     justify-content: center;
+}
+
+
+.backToLogin-btn {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    border-radius: 50px;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .notFound-container {
+        background-size: contain;
+        justify-content: center;
+    }
+
+    .notFound-container {
+        display: flex;
+        height: 100vh;
+        background-image: url('/assets/demo-bg.jpeg');
+        background-size: cover;
+        background-color: rgb(241, 243, 245);
+        background-attachment: fixed, scroll;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    .error-card {
+        width: auto;
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        
+        margin: 20px;
+        background-color: rgba(241, 243, 245, 0.603);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    }
+
+    .error-heading {
+        font-size: 35px;
+        margin: 0 0 20px 0;
+        color: #f44336;
+    }
+
+    .error-message {
+        font-size: 16px;
+        margin: 0 0 20px 0;
+    }
+
+    p{
+        font-size: 12px;
+    }
 }
