@@ -1,28 +1,37 @@
+/* Default styles */
 .login-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
     height: 100vh;
-    background-color: rgba(44, 198, 245, 0.171);
+    background-image: url('/assets/demo-bg.jpeg');
+    background-size: cover;
+    background-color: rgb(241, 243, 245);
+    background-attachment: fixed, scroll;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .form-heading {
     text-align: center;
+    font-weight: 700;
 }
 
 .box {
+    display: flex;
+    flex-direction: column;
     background-color: #03d2f748;
     border-radius: 8px;
     padding: 45px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    background-color: rgba(224, 215, 215, 0.589);
+    margin-left: 150px;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
     margin-bottom: 20px;
 }
 
@@ -31,19 +40,48 @@ mat-form-field {
     margin-bottom: 10px;
 }
 
-.signup-link {
-    margin-top: 70px;
-    font-size: 12px;
-    margin-left: 50px;
-}
-
+.signup-link,
 .reset-link {
     font-size: 12px;
-    margin-left: 50px;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
 }
 
 mat-hint {
     color: red;
     font-size: 12px;
+}
 
+.login-button {
+    margin-top: 220px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.377);
+    border-radius: 50px;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .login-container {
+        background-size: contain;
+        justify-content: center;
+    }
+
+    .box {
+        margin: 0 auto;
+        /* Center the box horizontally */
+    }
+
+    .login-container {
+        display: flex;
+        /* flex-direction: row; */
+        /* align-items: center; */
+        height: 100vh;
+        background-image: url('/assets/demo-bg.jpeg');
+        background-size: cover;
+        background-color: rgb(241, 243, 245);
+        background-attachment: fixed, scroll;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
