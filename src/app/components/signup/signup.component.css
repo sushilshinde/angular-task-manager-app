@@ -76,8 +76,6 @@ mat-hint {
 
     .signup-container {
         display: flex;
-        /* flex-direction: row; */
-        /* align-items: center; */
         height: 100vh;
         background-image: url('/assets/demo-bg.jpeg');
         background-size: cover;
@@ -85,5 +83,11 @@ mat-hint {
         background-attachment: fixed, scroll;
         background-position: center;
         background-repeat: no-repeat;
+        
+    }
+
+
+    .box {
+        margin: top 25px;
     }
 }
