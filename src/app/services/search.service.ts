@@ -17,7 +17,7 @@ export class SearchService {
       return of();
     } 
     else{
-      return this.http.get<Search>(this.url + '?q=' + searchTerm.trim().toLowerCase())
+      return this.http.get<Search>(this.url+'/all_tasks' + '?q=' + searchTerm.trim().toLowerCase())
     }
   
   }
