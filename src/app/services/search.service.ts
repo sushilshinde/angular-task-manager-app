@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Search } from '../appInterface/search.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  url = 'http://localhost:3000/team-b/all_tasks'
+  url: string = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getSearches(searchTerm: String): Observable<Search> {

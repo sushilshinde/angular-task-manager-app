@@ -2,15 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TasksDb } from '../models/tasks.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  url: string = "http://localhost:3000/team-b";
+  url: string = environment.apiUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+  }
 
   get_all_tasks():Observable<TasksDb[]>{
     return this.http.get<TasksDb[]>(`${this.url}/all_tasks`);
