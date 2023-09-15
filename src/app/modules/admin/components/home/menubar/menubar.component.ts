@@ -118,5 +118,6 @@ export class MenubarComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.loading = false;
   }
 }

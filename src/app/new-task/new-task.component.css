@@ -12,7 +12,7 @@
 }
 
 .box {
-  background-color: #03d2f748;
+  background-color: rgba(165, 161, 161, 0.377);
   
   border-radius: 8px;
   padding: 45px;
@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: auto;
   margin-bottom: 20px;
 }
 
@@ -42,3 +42,30 @@ mat-hint {
   color: red;
   font-size: 12px;
 }
+
+
+
+@media screen and (max-width: 320px) {
+
+  .form-heading {
+    font-size: 20px;
+  }
+
+  .form-group{
+    height: 70px;
+    width: auto;
+  }
+
+  mat-hint {
+    color: red;
+    font-size: 10px;
+  }
+
+  .box {
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+}
+
+

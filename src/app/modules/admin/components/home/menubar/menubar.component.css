@@ -6,6 +6,14 @@
   background-color: transparent;
   border: none;
   outline: none;
+ 
+}
+
+.search-area {
+  /* background-color: black; */
+  border: 1px solid white;
+  border-radius: 50px;
+  margin-left: 50px;
 }
 
 ::placeholder {
@@ -111,13 +119,14 @@ input {
 
 
 .search-icon {
-  padding-top: 5px;
-  margin-left: 50px;
+  padding-top: 7px;
+  margin-left: 5px;
+  font-size: 21px;
 }
 
 .table,
 .results-heading {
-  width: 70%;
+  width: 85%;
   margin: auto;
 }
 
@@ -133,4 +142,96 @@ input {
   justify-content: center;
   align-items: center;
   height: 70vh;
+}
+
+@media screen and (max-width: 768px) {
+  .search-area {
+    margin-left: 10px;
+  }
+
+  mat-drawer{
+    width: 12%;
+  }
+
+  .side-nav-item, .setting-icon-div {
+    padding: 0px;
+  
+  }
+
+  .icon-name{
+    font-size: 13px;
+  }
+  
+}
+
+
+
+@media screen and (max-width: 572px) {
+  mat-toolbar {
+    display: block;
+    height: auto;
+    width: fit-content;
+    padding-top: 25px;
+  }
+
+
+  .login-time {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 90px;
+  }
+
+  form {
+    margin-top: -35px;
+    margin-left: 10px;
+  }
+
+  .logout-button {
+    margin-left: 70px;
+  }
+
+
+  .search-area {
+    margin-left: 70px;
+  }
+
+  mat-drawer{
+    width: 16%;
+  }
+
+  .icon-name{
+    font-size: 12px;
+  }
+
+  .side-nav-item, .setting-icon-div {
+    padding: 0px;
+  
+  }
+
+  
+  
+  
+}
+
+@media screen and (min-width: 425px) {
+  mat-toolbar {
+    width: auto;
+  }
+
+  .search-area {
+    margin-right: 20px;
+  }
+
+  .login-time {
+    margin-right: 50px;
+  }
+  
+
+}
+
+@media screen and (min-width: 375px) {
+  mat-toolbar {
+    width: auto;
+  }
+  
 }

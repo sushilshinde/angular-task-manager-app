@@ -4,7 +4,7 @@
   </button>
 
   <form #searchForm="ngForm">
-    <div class="ps-4">
+    <div class="search-area">
       <mat-icon class="search-icon">search</mat-icon>
       <input class="search-bar" type="text" placeholder="Search for tasks..." required name="searchTerm"
         autocomplete="off" [(ngModel)]="searchKey" />
@@ -13,7 +13,7 @@
   <!-- <mat-icon>search</mat-icon> -->
   <span class="example-spacer"></span>
 
-  <div class="login-time d-sm-block d-none" *ngIf="loginTime !== null">
+  <div class="login-time d-sm-block" *ngIf="loginTime !== null">
     <!-- Specify the argument as '12' for 12-hour format and '24' for 24-hour format -->
     <p>Login Time: {{ loginTime | loginTimeFormat : "12" }}</p>
   </div>
@@ -30,13 +30,13 @@
 
 <!-- SideNave Start -->
 <mat-drawer-container autosize>
-  <mat-drawer #drawer opened="true" mode="side" position="start" style="width: 9%">
+  <mat-drawer #drawer opened="true" mode="side" position="start">
     <div class="div-container">
       <mat-nav-list class="nav-list-container">
         <mat-list-item class="side-nav-item" *ngFor="let menuItem of menuItems">
           <div class="list-item-div" routerLink="{{ menuItem.route }}">
             <mat-icon class="menu-item-icon">{{ menuItem.icon }}</mat-icon>
-            <span mat-button>{{ menuItem.label }}</span>
+            <span class="icon-name" mat-button>{{ menuItem.label }}</span>
             <!-- <button routerLink="{{ menuItem.route }}" mat-button>
               {{ menuItem.label }}
             </button> -->
@@ -44,10 +44,10 @@
         </mat-list-item>
       </mat-nav-list>
       <div class="setting-div">
-        <mat-list-item>
+        <mat-list-item class="setting-icon-div">
           <div class="list-item-div">
             <mat-icon class="menu-item-icon">settings</mat-icon>
-            <button mat-button>Settings</button>
+            <button class="icon-name" mat-button>Settings</button>
           </div>
         </mat-list-item>
       </div>
@@ -79,7 +79,7 @@
 
         <!-- Search -->
 
-        <app-backlog *ngIf="searchKey.trim() === ''"></app-backlog>
+        <app-backlog class="backlog-component" *ngIf="searchKey.trim() === ''"></app-backlog>
 
         <hr *ngIf="
         searchResults &&

@@ -55,6 +55,7 @@ mat-card-actions {
     .notFound-container {
         display: flex;
         height: 100vh;
+        width: 100vw;
         background-image: url('/assets/demo-bg.jpeg');
         background-size: cover;
         background-color: rgb(241, 243, 245);
